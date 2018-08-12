@@ -27,27 +27,31 @@ Component <|-- Button
 Component <|-- Panel
 
 Button <|-- WindowsButton
-Button <|-- LinuxButton
+Button <|--- LinuxButton
 
 Panel <|-- WindowsPanel
-Panel <|-- LinuxPanel
+Panel <|--- LinuxPanel
 
-GuiFactorySelector --> GuiFactory
-GuiFactorySelector -> OS
+GuiFactorySelector --> WindowsFactory
+GuiFactorySelector --> LinuxFactory
+GuiFactorySelector -r-> OS
 
-GuiFactory --> Panel
-GuiFactory --> Button
+WindowsFactory --> WindowsPanel
+WindowsFactory --> WindowsButton
+
+LinuxFactory --> LinuxPanel
+LinuxFactory --> LinuxButton
 
 note "Retornará el Factory solicitado" as NoteGuiFactorySelector
 GuiFactorySelector .. NoteGuiFactorySelector
 
 note "Abstract Factory" as NoteGuiFactory
-GuiFactory . NoteGuiFactory
+GuiFactory .. NoteGuiFactory
 
 note "return new WindowsButton()\nreturn new WindowsPanel()" as NoteWindowsFactory
-WindowsFactory .. NoteWindowsFactory
+WindowsFactory .r. NoteWindowsFactory
 
 note "return new LinuxButton()\nreturn new LinuxPanel()" as NoteLinuxFactory
-LinuxFactory .. NoteLinuxFactory
+LinuxFactory .l. NoteLinuxFactory
 
 @enduml
