@@ -1,0 +1,25 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "idea"
+
+group = "sauljabin"
+version = "0.1.0-SNAPSHOT"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile("junit:junit:4.12")
+    testCompile("org.mockito:mockito-core:2.21.0")
+    testCompile("com.github.javafaker:javafaker:0.15")
+}
+
+test {
+    testLogging {
+        events "PASSED", "FAILED", "STANDARD_OUT"
+    }
+}

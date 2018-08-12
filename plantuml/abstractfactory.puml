@@ -1,0 +1,53 @@
+@startuml
+
+interface GuiFactory {
+Button createButton()
+Panel createPanel()
+}
+
+GuiFactory <|-- WindowsFactory
+GuiFactory <|-- LinuxFactory
+
+enum OS {
+WINDOWS
+LINUX
+}
+
+class GuiFactorySelector {
+GuiFactory getFactory(OS os)
+}
+
+interface Component {
+void paint()
+}
+interface Panel
+interface Button
+
+Component <|-- Button
+Component <|-- Panel
+
+Button <|-- WindowsButton
+Button <|-- LinuxButton
+
+Panel <|-- WindowsPanel
+Panel <|-- LinuxPanel
+
+GuiFactorySelector --> GuiFactory
+GuiFactorySelector -> OS
+
+GuiFactory --> Panel
+GuiFactory --> Button
+
+note "Retornará el Factory solicitado" as NoteGuiFactorySelector
+GuiFactorySelector .. NoteGuiFactorySelector
+
+note "Abstract Factory" as NoteGuiFactory
+GuiFactory . NoteGuiFactory
+
+note "return new WindowsButton()\nreturn new WindowsPanel()" as NoteWindowsFactory
+WindowsFactory .. NoteWindowsFactory
+
+note "return new LinuxButton()\nreturn new LinuxPanel()" as NoteLinuxFactory
+LinuxFactory .. NoteLinuxFactory
+
+@enduml
