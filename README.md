@@ -13,7 +13,7 @@ para explicarlos en español con ejemplos.
 
 `sudo apt install graphviz`: es necesario para usar [PlantUML](http://plantuml.com/)
 
-`amke uml`: crea la imagenes UML con [PlantUML](http://plantuml.com/)
+`make uml`: crea la imagenes UML con [PlantUML](http://plantuml.com/)
 
 `make clean`: limpia el proyecto
 
