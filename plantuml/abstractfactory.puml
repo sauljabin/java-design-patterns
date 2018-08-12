@@ -23,35 +23,35 @@ void paint()
 interface Panel
 interface Button
 
-Component <|-- Button
-Component <|-- Panel
+Button -down-|> Component
+Panel -down-|> Component
 
-Button <|-- WindowsButton
-Button <|--- LinuxButton
+WindowsButton -down-|> Button
+LinuxButton -down-|> Button
 
-Panel <|-- WindowsPanel
-Panel <|--- LinuxPanel
+WindowsPanel -down-|> Panel
+LinuxPanel -down-|> Panel
 
 GuiFactorySelector --> WindowsFactory
 GuiFactorySelector --> LinuxFactory
-GuiFactorySelector -r-> OS
+GuiFactorySelector -up-> OS
 
-WindowsFactory --> WindowsPanel
-WindowsFactory --> WindowsButton
+WindowsFactory -down-> WindowsPanel
+WindowsFactory -down-> WindowsButton
 
-LinuxFactory --> LinuxPanel
-LinuxFactory --> LinuxButton
+LinuxFactory -down-> LinuxPanel
+LinuxFactory -down-> LinuxButton
 
 note "Retornará el Factory solicitado" as NoteGuiFactorySelector
-GuiFactorySelector .. NoteGuiFactorySelector
+GuiFactorySelector .right. NoteGuiFactorySelector
 
 note "Abstract Factory" as NoteGuiFactory
-GuiFactory .. NoteGuiFactory
+GuiFactory .left. NoteGuiFactory
 
 note "return new WindowsButton()\nreturn new WindowsPanel()" as NoteWindowsFactory
-WindowsFactory .r. NoteWindowsFactory
+WindowsFactory .right. NoteWindowsFactory
 
 note "return new LinuxButton()\nreturn new LinuxPanel()" as NoteLinuxFactory
-LinuxFactory .l. NoteLinuxFactory
+LinuxFactory .left. NoteLinuxFactory
 
 @enduml
