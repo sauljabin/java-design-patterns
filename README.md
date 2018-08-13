@@ -37,14 +37,22 @@ Ejemplo de uso:
 GuiFactory guiFactory = GuiFactorySelector.getFactory(OS.LINUX);
 
 Button button = guiFactory.createButton(); // botón que funcionará solo en linux
-button.paint();
+button.paint(); // Salida: Linux Button
 
 Panel panel = guiFactory.createPanel(); // panel que funcionará solo en linux
-panel.paint();
+panel.paint(); // Salida: Linux Panel
 ```
 
 Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.
+
+### [Factory Method](src/main/java/pattern/creational/factorymethod)
+
+```
+Payment payment = PaymentFactory.createPayment(PaymentType.CASH);
+
+payment.doPayment(1000.50); // Salida: Paid with cash: 1000.50
+```
 
 ## Patrones de Comportamiento
 
@@ -58,7 +66,7 @@ cada proceso tiene una única responsabilidad, como por ejemplo: remover caracte
 especiales o colocar en mayúsculas las letras. Se crea una clase principal (handler)
 con la responsabilidad de ejecutar cada etapa en el orden asignado. 
 
-![abstractfactory](plantuml/pipeline.png)
+![pipeline](plantuml/pipeline.png)
 
 Ejemplo de uso:
 

@@ -9,8 +9,7 @@ public class GuiFactorySelector {
             return new LinuxFactory();
         } else if (os.equals(OS.WINDOWS)) {
             return new WindowsFactory();
-        } else {
-            return null;
         }
+        return null;
     }
 }
