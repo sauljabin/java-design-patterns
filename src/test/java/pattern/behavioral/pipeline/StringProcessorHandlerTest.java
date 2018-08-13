@@ -74,7 +74,7 @@ public class StringProcessorHandlerTest {
         String processedString = stringProcessorHandler
                 .add(new RemoveSpecialCharProcessor())
                 .add(new ToUpperProcessor())
-                .execute("This$ is an uncl@ean+ed fra#SE");
+                .execute("This$ is an uncl@ean+ed phr#aSe");
 
         System.out.println(processedString);
     }
