@@ -21,6 +21,33 @@ para explicarlos en español con ejemplos.
 
 ## Patrones Creacionales
 
+
+### [Factory Method](src/main/java/pattern/creational/factorymethod)
+
+Crea objetos de una misma familia usando polimorfismo.
+Permite abstraernos de como fue creado el objeto, generalmente
+cuando es difícil de construir, no sabemos explícitamente cuál es la clase
+a instanciar, o por último no es necesario saber cuál es la clase a instanciar.
+
+En el ejemplo se asume que la aplicación le permite al usuario pagar
+con efectivo o con tarjeta de crédito. Se crean dos clases de tipo pago,
+cada una con un comportamiento diferente, se utiliza un factory para 
+obtener la clase correcta según sea el caso.
+
+![factorymethod](plantuml/factorymethod.png)
+
+Ejemplo de uso:
+
+```
+Payment payment = PaymentFactory.createPayment(PaymentType.CASH);
+
+payment.doPayment(1000.50); // Salida: Paid with cash: 1000.50
+```
+
+El patrón generalmente es usado como un método estático.
+Es muy útil para crear objetos rápidamente, o para crear objetos con distintos 
+comportamientos pero en la misma familia.
+
 ### [Abstract Factory](src/main/java/pattern/creational/abstractfactory)
 
 Crea objetos de diferentes familias de clases. Es un Factory para crear Factories.
@@ -36,23 +63,15 @@ Ejemplo de uso:
 ```
 GuiFactory guiFactory = GuiFactorySelector.getFactory(OS.LINUX);
 
-Button button = guiFactory.createButton(); // botón que funcionará solo en linux
+Button button = guiFactory.createButton(); // Botón que funcionará solo en linux
 button.paint(); // Salida: Linux Button
 
-Panel panel = guiFactory.createPanel(); // panel que funcionará solo en linux
+Panel panel = guiFactory.createPanel(); // Panel que funcionará solo en linux
 panel.paint(); // Salida: Linux Panel
 ```
 
 Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.
-
-### [Factory Method](src/main/java/pattern/creational/factorymethod)
-
-```
-Payment payment = PaymentFactory.createPayment(PaymentType.CASH);
-
-payment.doPayment(1000.50); // Salida: Paid with cash: 1000.50
-```
 
 ## Patrones de Comportamiento
 

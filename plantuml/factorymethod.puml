@@ -1,0 +1,26 @@
+@startuml
+
+interface Payment {
+void doPayment(double money)
+}
+
+Cash --|> Payment
+CreditCard --|> Payment
+
+class PaymentFactory {
+Payment createPayment(PaymentType paymentType)
+}
+
+enum PaymentType {
+CREDIT_CARD
+CASH
+}
+
+PaymentFactory -> PaymentType
+PaymentFactory --> Cash
+PaymentFactory --> CreditCard
+
+note "Factory Method\nRetorna el objeto solicitado" as NotePaymentFactory
+PaymentFactory .l. NotePaymentFactory
+
+@enduml
