@@ -45,3 +45,7 @@ panel.paint();
 
 Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.
+
+## Patrones de Comportamiento
+
+### [Pipeline](src/main/java/pattern/behavioral/pipeline)

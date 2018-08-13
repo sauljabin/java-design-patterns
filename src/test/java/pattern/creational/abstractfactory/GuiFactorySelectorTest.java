@@ -13,6 +13,9 @@ public class GuiFactorySelectorTest {
         assertThat(GuiFactorySelector.getFactory(OS.WINDOWS), instanceOf(WindowsFactory.class));
     }
 
+    /**
+     * Este es un ejemplo de como se utilizaría el patrón.
+     */
     @Ignore
     @Test
     public void exampleAbstractFactory() {
