@@ -73,6 +73,28 @@ panel.paint(); // Salida: Linux Panel
 Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.
 
+### [Singleton](src/main/java/pattern/creational/singleton)
+
+Singleton es un patrón creacional que hace que exista solo una instancia para un tipo de dato.
+Permite el acceso global a la instancia. Es usado cuando se necesita que compartir un recurso en todo la aplicación,
+como por ejemplo la conexión a la base de datos. 
+
+En el ejemplo se presenta un uso común, el acceso a configuraciones en la aplicación.
+Generalmente las configuraciones son compartidas, y se necesita acceder a ellas desde cualquier
+punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual.
+
+![singleton](plantuml/singleton.png)
+
+Ejemplo de uso:
+
+```
+Settings settings = Settings.getInstance();
+
+settings.set(KEY, VALUE);
+
+System.out.println(Settings.getInstance().get(KEY)); // Se llama al método getInstance de nuevo
+```
+
 ## Patrones de Comportamiento
 
 ### [Pipeline](src/main/java/pattern/behavioral/pipeline)

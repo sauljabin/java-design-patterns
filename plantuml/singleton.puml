@@ -1,0 +1,20 @@
+@startuml
+
+class Settings {
+static Settings instance
+private Settings()
+synchronized static Settings getInstance()
+synchronized void set(String key, String value)
+synchronized void remove(String key)
+synchronized String get(String key)
+}
+
+Settings --> Settings
+
+note "Clase singleton, usa el método estático\ngetInstance() para instanciarse" as NoteSettings
+Settings .l. NoteSettings
+
+note "public synchronized static Settings getInstance() {\n    if (instance == null) {\n        instance = new Settings();\n    }\n    return instance;\n}" as NoteSettings2
+Settings .. NoteSettings2
+
+@enduml
