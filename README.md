@@ -116,11 +116,11 @@ Ejemplo de uso:
 
 ```
 Square square = new Square();
-square.setWidth(width);
-square.setHeight(height);
-square.setX(x);
-square.setY(y);
-square.setColor(color);
+square.setWidth(100);
+square.setHeight(100);
+square.setX(20);
+square.setY(20);
+square.setColor(Color.BLACK);
 
 System.out.printf("Original object: %s, new object: %s\n", square, square.clone()); // Salida: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 ```

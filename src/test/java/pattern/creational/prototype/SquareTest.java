@@ -1,7 +1,6 @@
 package pattern.creational.prototype;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.awt.*;
@@ -60,21 +59,5 @@ public class SquareTest {
 
         assertThat(clone.getWidth(), is(width));
         assertThat(clone.getHeight(), is(height));
-    }
-
-    /**
-     * Este es un ejemplo de como se utilizaría el patrón.
-     */
-    @Ignore
-    @Test
-    public void exampleFactoryMethod() {
-        Square square = new Square();
-        square.setWidth(width);
-        square.setHeight(height);
-        square.setX(x);
-        square.setY(y);
-        square.setColor(color);
-
-        System.out.printf("Original object: %s, new object: %s\n", square, square.clone());
     }
 }

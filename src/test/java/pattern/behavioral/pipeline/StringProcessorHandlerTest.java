@@ -1,6 +1,5 @@
 package pattern.behavioral.pipeline;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
@@ -61,21 +60,5 @@ public class StringProcessorHandlerTest {
         inOrder.verify(secondProcessor).execute(firstOutput);
 
         assertThat(processedString, is(secondOutput));
-    }
-
-    /**
-     * Este es un ejemplo de como se utilizaría el patrón.
-     */
-    @Ignore
-    @Test
-    public void examplePipeline() {
-        StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
-
-        String processedString = stringProcessorHandler
-                .add(new RemoveSpecialCharProcessor())
-                .add(new ToUpperProcessor())
-                .execute("This$ is an uncl@ean+ed phr#aSe");
-
-        System.out.println(processedString);
     }
 }
