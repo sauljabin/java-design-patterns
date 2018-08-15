@@ -9,6 +9,6 @@ public class PipelineExample {
                 .add(new ToUpperProcessor())
                 .execute("This$ is an uncl@ean+ed phr#aSe");
 
-        System.out.println(processedString);
+        System.out.println(processedString); // Salida: THIS IS AN UNCLEANED PHRASE
     }
 }

@@ -90,9 +90,31 @@ Ejemplo de uso:
 ```
 Settings settings = Settings.getInstance();
 
-settings.set(KEY, VALUE);
+settings.set("db.name", "test");
 
-System.out.println(Settings.getInstance().get(KEY)); // Se llama al método getInstance de nuevo
+System.out.println(Settings.getInstance().get("db.name")); // Se llama al método getInstance de nuevo. Salida: test
+```
+
+### [Builder](src/main/java/pattern/creational/builder)
+
+Permite producir diferentes tipos y representaciones de un objeto utilizando el mismo proceso de construcción. 
+El builder permite construir objetos complejos paso a paso.
+Ayuda a que el código sea más legible. Y evita usar constructores, los 
+cuales afectan a muchas clases cuando se cambia su firma.
+También encapsula lógica especifica de construcción del objeto,
+abstrayendo al usuario de este conocimiento.
+
+![builder](plantuml/builder.png)
+
+Ejemplo de uso:
+
+```
+Person person = Person.builder()
+                .firstName("Nikola")
+                .lastName("Tesla")
+                .build();
+
+System.out.println(person);
 ```
 
 ### [Prototype](src/main/java/pattern/creational/prototype)
@@ -122,7 +144,7 @@ square.setX(20);
 square.setY(20);
 square.setColor(Color.BLACK);
 
-System.out.printf("Original object: %s, new object: %s\n", square, square.clone()); // Salida: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
+System.out.printf("Original object: %s, new object: %s\n", square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 ```
 
 ## Patrones de Comportamiento
