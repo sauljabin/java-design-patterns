@@ -1,4 +1,4 @@
-# Design Patterns Java
+# Design Patterns in Java
 
 Este proyecto recoge los patrones de diseño más comunes
 para explicarlos en español con ejemplos.
@@ -8,6 +8,7 @@ para explicarlos en español con ejemplos.
 - [refactoring.guru](https://refactoring.guru) (recomendado)
 - [sourcemaking.com](https://sourcemaking.com/)
 - [tutorialspoint.com](https://www.tutorialspoint.com/design_pattern)
+- [java-design-patterns.com](http://java-design-patterns.com/patterns/)
 
 ## Comandos
 
