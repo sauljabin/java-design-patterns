@@ -75,6 +75,6 @@ public class SquareTest {
         square.setY(y);
         square.setColor(color);
 
-        System.out.printf("Hash original: %s, nuevo objeto: %s\n", square, square.clone());
+        System.out.printf("Original object: %s, new object: %s\n", square, square.clone());
     }
 }

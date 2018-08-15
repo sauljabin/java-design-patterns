@@ -1,0 +1,21 @@
+@startuml
+
+abstract class Shape {
+private Color color
+private double x
+private double y
+Shape()
+Shape(Shape base)
+abstract Shape clone();
+}
+
+Circle -up-|> Shape
+Square -up-|> Shape
+
+note "public Shape clone() { \n       return new Square(this);\n}" as SquareNote
+SquareNote .. Square
+
+note "Prototype" as ShapeNote
+ShapeNote .. Shape
+
+@enduml
