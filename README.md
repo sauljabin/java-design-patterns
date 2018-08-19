@@ -9,6 +9,7 @@ para explicarlos en español con ejemplos.
 - [sourcemaking.com](https://sourcemaking.com/)
 - [tutorialspoint.com](https://www.tutorialspoint.com/design_pattern)
 - [java-design-patterns.com](http://java-design-patterns.com/patterns/)
+- [wikipedia](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o)
 
 ## Comandos
 
