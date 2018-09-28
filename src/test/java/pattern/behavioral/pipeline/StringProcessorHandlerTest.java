@@ -40,16 +40,16 @@ public class StringProcessorHandlerTest {
 
     @Test
     public void shouldInvokeEachProcessorExecuteFunction() {
+        String firstOutput = new String();
+        String secondOutput = new String();
+        String originalInput = new String();
+        StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
         StringProcessor firstProcessor = mock(StringProcessor.class);
-        String firstOutput = "first";
-        doReturn(firstOutput).when(firstProcessor).execute(any());
-
         StringProcessor secondProcessor = mock(StringProcessor.class);
-        String secondOutput = "second";
+
+        doReturn(firstOutput).when(firstProcessor).execute(any());
         doReturn(secondOutput).when(secondProcessor).execute(any());
 
-        StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
-        String originalInput = "original";
         String processedString = stringProcessorHandler
                 .add(firstProcessor)
                 .add(secondProcessor)
