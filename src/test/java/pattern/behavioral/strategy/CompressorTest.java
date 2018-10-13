@@ -1,14 +1,14 @@
 package pattern.behavioral.strategy;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import static org.mockito.Mockito.verify;
 
 import java.io.File;
 import java.util.List;
 
-import static org.mockito.Mockito.verify;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CompressorTest {
@@ -20,11 +20,11 @@ public class CompressorTest {
 
     @Test
     public void shouldInvokeCompressionMethod() {
-        Compressor compressor = new Compressor();
-        compressor.setCompressionFormat(format);
+	Compressor compressor = new Compressor();
+	compressor.setCompressionFormat(format);
 
-        compressor.compress(files);
+	compressor.compress(files);
 
-        verify(format).compress(files);
+	verify(format).compress(files);
     }
 }

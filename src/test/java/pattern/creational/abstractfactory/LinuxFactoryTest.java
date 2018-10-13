@@ -1,16 +1,15 @@
 package pattern.creational.abstractfactory;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 public class LinuxFactoryTest {
     @Test
     public void shouldCreateTheCorrectComponents() {
-        LinuxFactory linuxFactory = new LinuxFactory();
+	LinuxFactory linuxFactory = new LinuxFactory();
 
-        assertThat(linuxFactory.createButton(), instanceOf(LinuxButton.class));
-        assertThat(linuxFactory.createPanel(), instanceOf(LinuxPanel.class));
+	assertThat(linuxFactory.createButton()).isInstanceOf(LinuxButton.class);
+	assertThat(linuxFactory.createPanel()).isInstanceOf(LinuxPanel.class);
     }
 }

@@ -1,14 +1,12 @@
 package pattern.creational.prototype;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Random;
 
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 public class SquareTest {
     private Random random;
@@ -20,44 +18,44 @@ public class SquareTest {
 
     @Before
     public void setUp() {
-        random = new Random();
-        x = random.nextDouble();
-        y = random.nextDouble();
-        width = random.nextDouble();
-        height = random.nextDouble();
-        color = new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+	random = new Random();
+	x = random.nextDouble();
+	y = random.nextDouble();
+	width = random.nextDouble();
+	height = random.nextDouble();
+	color = new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
 
     @Test
     public void shouldGetNewInstance() {
-        Square square = new Square();
+	Square square = new Square();
 
-        assertThat(square, is(not(square.clone())));
+	assertThat(square).isNotEqualTo(square.clone());
     }
 
     @Test
     public void shouldGetTheSameValuesOfShape() {
-        Square square = new Square();
-        square.setX(x);
-        square.setY(y);
-        square.setColor(color);
+	Square square = new Square();
+	square.setX(x);
+	square.setY(y);
+	square.setColor(color);
 
-        Shape clone = square.clone();
+	Shape clone = square.clone();
 
-        assertThat(clone.getX(), is(x));
-        assertThat(clone.getY(), is(y));
-        assertThat(clone.getColor(), is(color));
+	assertThat(clone.getX()).isEqualTo(x);
+	assertThat(clone.getY()).isEqualTo(y);
+	assertThat(clone.getColor()).isEqualTo(color);
     }
 
     @Test
     public void shouldGetTheSameValuesOfOriginalSquare() {
-        Square square = new Square();
-        square.setWidth(width);
-        square.setHeight(height);
+	Square square = new Square();
+	square.setWidth(width);
+	square.setHeight(height);
 
-        Square clone = (Square) square.clone();
+	Square clone = (Square) square.clone();
 
-        assertThat(clone.getWidth(), is(width));
-        assertThat(clone.getHeight(), is(height));
+	assertThat(clone.getWidth()).isEqualTo(width);
+	assertThat(clone.getHeight()).isEqualTo(height);
     }
 }

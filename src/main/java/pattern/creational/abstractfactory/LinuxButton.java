@@ -3,6 +3,6 @@ package pattern.creational.abstractfactory;
 public class LinuxButton implements Button {
     @Override
     public void paint() {
-        System.out.println("Linux Button");
+	System.out.println("Linux Button");
     }
 }

@@ -1,6 +1,5 @@
 package pattern.creational.factorymethod;
 
 public enum PaymentType {
-    CREDIT_CARD,
-    CASH
+    CREDIT_CARD, CASH
 }

@@ -1,11 +1,9 @@
 package pattern.creational.singleton;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
 
 public class SettingsTest {
     private static final String KEY = "KEY";
@@ -14,20 +12,20 @@ public class SettingsTest {
 
     @Before
     public void setUp() {
-        settings = Settings.getInstance();
+	settings = Settings.getInstance();
     }
 
     @Test
     public void shouldGetSameInstance() {
-        assertThat(Settings.getInstance(), is(settings));
+	assertThat(Settings.getInstance()).isSameAs(settings);
     }
 
     @Test
     public void shouldSetGetAndRemoveASetting() {
-        settings.set(KEY, VALUE);
-        assertThat(settings.get(KEY), is(VALUE));
+	settings.set(KEY, VALUE);
+	assertThat(settings.get(KEY)).isEqualTo(VALUE);
 
-        settings.remove(KEY);
-        assertThat(settings.get(KEY), is(nullValue()));
+	settings.remove(KEY);
+	assertThat(settings.get(KEY)).isNull();
     }
 }

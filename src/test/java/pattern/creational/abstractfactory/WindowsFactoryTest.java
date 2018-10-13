@@ -1,16 +1,15 @@
 package pattern.creational.abstractfactory;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 public class WindowsFactoryTest {
     @Test
     public void shouldCreateTheCorrectComponents() {
-        WindowsFactory windowsFactory = new WindowsFactory();
+	WindowsFactory windowsFactory = new WindowsFactory();
 
-        assertThat(windowsFactory.createButton(), instanceOf(WindowsButton.class));
-        assertThat(windowsFactory.createPanel(), instanceOf(WindowsPanel.class));
+	assertThat(windowsFactory.createButton()).isInstanceOf(WindowsButton.class);
+	assertThat(windowsFactory.createPanel()).isInstanceOf(WindowsPanel.class);
     }
 }

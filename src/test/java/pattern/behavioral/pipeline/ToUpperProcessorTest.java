@@ -1,17 +1,16 @@
 package pattern.behavioral.pipeline;
 
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 public class ToUpperProcessorTest {
     @Test
     public void shouldConvertStringToUpper() {
-        ToUpperProcessor toUpperProcessor = new ToUpperProcessor();
+	ToUpperProcessor toUpperProcessor = new ToUpperProcessor();
 
-        String returnedString = toUpperProcessor.execute("word");
+	String returnedString = toUpperProcessor.execute("word");
 
-        assertThat(returnedString, is("WORD"));
+	assertThat(returnedString).isEqualTo("WORD");
     }
 }
