@@ -1,0 +1,32 @@
+@startuml
+
+class Console {
+String command
+void setCommand(String command)
+void exec()
+Snapshot generateSnapshot()
+void restoreFromSnapshot(Snapshot snapshot)
+}
+
+class History {
+List<Snapshot> snapshots
+void addSnapshot(Snapshot snapshot)
+Snapshot getSnapshot(int index)
+}
+
+class Snapshot {
+String command
+Snapshot(String command)
+String getCommand() 
+}
+
+History *-d- Snapshot
+Snapshot --> Console
+
+note "Originador" as ConsoleNote
+ConsoleNote .l. Console
+
+note "Memento" as MementoNote
+MementoNote .r. Snapshot
+
+@enduml
