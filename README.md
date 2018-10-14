@@ -3,6 +3,20 @@
 Este proyecto recoge los patrones de diseño más comunes
 para explicarlos en español con ejemplos.
 
+## Índice
+
+- [Enlaces](#enlaces)
+- [Comandos](#comandos)
+- [Patrones Creacionales](#patrones-creacionales)
+    - [Factory Method](#factory-method)
+    - [Abstract Factory](#abstract-factory)
+    - [Singleton](#singleton)
+    - [Builder](#builder)
+    - [Prototype](#prototype)
+- [Patrones de Comportamiento](#patrones-de-comportamiento)
+    - [Pipeline](#pipeline)
+    - [Strategy](#strategy)
+
 ## Enlaces
 
 - [mcdonaldland.info](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf)
