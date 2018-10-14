@@ -9,7 +9,7 @@ synchronized void remove(String key)
 synchronized String get(String key)
 }
 
-Settings --> Settings
+Settings --* Settings
 
 note "Clase singleton, usa el método estático\ngetInstance() para instanciarse" as NoteSettings
 Settings .l. NoteSettings

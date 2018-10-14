@@ -14,8 +14,8 @@ PersonBuilder lastName(String lastName)
 Person build()
 }
 
-PersonBuilder -up-> Person
-PersonBuilder <-- Person
+PersonBuilder *-up- Person
+PersonBuilder --> Person
 
 note "El método builder() instancia la clase\nbuilder específica para Person" as PersonNote
 PersonNote .r. Person

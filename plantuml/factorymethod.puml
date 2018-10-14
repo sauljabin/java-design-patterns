@@ -16,9 +16,9 @@ CREDIT_CARD
 CASH
 }
 
-PaymentFactory -> PaymentType
-PaymentFactory --> Cash
-PaymentFactory --> CreditCard
+PaymentFactory <-- PaymentType
+PaymentFactory o-- Cash
+PaymentFactory o-- CreditCard
 
 note "Factory Method\nRetorna el objeto solicitado" as NotePaymentFactory
 PaymentFactory .l. NotePaymentFactory

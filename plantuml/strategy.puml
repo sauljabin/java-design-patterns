@@ -1,7 +1,17 @@
 @startuml
 
 interface CompressionFormat {
-    void compress(List<File> files);
+    void compress(List<File> files)
 }
+
+class Compressor {
+	void setCompressionFormat(CompressionFormat compressionFormat)
+	void compress(List<File> files)
+}
+
+RarCompression -u-|> CompressionFormat
+ZipCompression -u-|> CompressionFormat
+
+Compressor *-d- CompressionFormat
 
 @enduml

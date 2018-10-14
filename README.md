@@ -181,3 +181,21 @@ Este patrón es muy útil cuando se tiene la necesidad de procesar un objeto (o 
 en un orden con una serie de etapas bien definidas. Además, se puede usar
 cuando la salida de una etapa es necesaria como entrada para otra.
 Un paso puede ser o no un requisito previo para otro paso.
+
+### [Strategy](src/main/java/pattern/behavioral/strategy)
+
+Permite definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables. El patrón permite que el algoritmo varíe independientemente de los clientes que lo utilizan.
+
+Es útil cuando se tienes un objeto que debería poder hacer la misma tarea de muchas maneras diferentes. 
+Esas tareas se pueden descomponer en clases de una misma familia.
+
+![pipeline](plantuml/strategy.png)
+
+Ejemplo de uso:
+
+```
+Compressor compressor = new Compressor();
+compressor.setCompressionFormat(new ZipCompression());
+	
+compressor.compress(asList(new File("README.md"))); // Salida: Compressing [README.md] with zip format
+```

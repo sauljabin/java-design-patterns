@@ -32,15 +32,15 @@ LinuxButton -down-|> Button
 WindowsPanel -down-|> Panel
 LinuxPanel -down-|> Panel
 
-GuiFactorySelector --> WindowsFactory
-GuiFactorySelector --> LinuxFactory
-GuiFactorySelector -up-> OS
+GuiFactorySelector o-- WindowsFactory
+GuiFactorySelector o-- LinuxFactory
+GuiFactorySelector <- OS
 
-WindowsFactory -down-> WindowsPanel
-WindowsFactory -down-> WindowsButton
+WindowsFactory o-down- WindowsPanel
+WindowsFactory o-down- WindowsButton
 
-LinuxFactory -down-> LinuxPanel
-LinuxFactory -down-> LinuxButton
+LinuxFactory o-down- LinuxPanel
+LinuxFactory o-down- LinuxButton
 
 note "Retornará el Factory solicitado" as NoteGuiFactorySelector
 GuiFactorySelector .right. NoteGuiFactorySelector

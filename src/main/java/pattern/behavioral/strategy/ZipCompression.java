@@ -6,6 +6,6 @@ import java.util.List;
 public class ZipCompression implements CompressionFormat {
     @Override
     public void compress(List<File> files) {
-	System.out.printf("Compressing %s with zip format");
+	System.out.printf("Compressing %s with zip format", files);
     }
 }
