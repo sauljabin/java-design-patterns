@@ -14,4 +14,10 @@ ZipCompression -u-|> CompressionFormat
 
 Compressor *-d- CompressionFormat
 
+note "Estrategia" as NoteEstrategia
+CompressionFormat ..l.. NoteEstrategia
+
+note "Contexto" as NoteContexto
+Compressor ..l.. NoteContexto
+
 @enduml
