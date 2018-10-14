@@ -32,6 +32,8 @@ para explicarlos en español con ejemplos.
 
 `make uml`: crea la imagenes UML con [PlantUML](http://plantuml.com/)
 
+`make uml file=builder`: crea la imagen del UML indicado en la variable `file`
+
 `make clean`: limpia el proyecto
 
 `make test`: corre todos las pruebas
