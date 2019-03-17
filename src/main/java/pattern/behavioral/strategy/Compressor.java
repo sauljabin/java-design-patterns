@@ -11,10 +11,10 @@ public class Compressor {
     private CompressionFormat compressionFormat;
 
     public void setCompressionFormat(CompressionFormat compressionFormat) {
-	this.compressionFormat = compressionFormat;
+        this.compressionFormat = compressionFormat;
     }
 
     public void compress(List<File> files) {
-	compressionFormat.compress(files);
+        compressionFormat.compress(files);
     }
 }

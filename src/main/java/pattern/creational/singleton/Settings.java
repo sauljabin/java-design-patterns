@@ -13,25 +13,25 @@ public final class Settings {
     private final Map<String, String> settingsMap;
 
     private Settings() {
-	settingsMap = new HashMap<>();
+        settingsMap = new HashMap<>();
     }
 
     public synchronized static Settings getInstance() {
-	if (instance == null) {
-	    instance = new Settings();
-	}
-	return instance;
+        if (instance == null) {
+            instance = new Settings();
+        }
+        return instance;
     }
 
     public synchronized void set(String key, String value) {
-	settingsMap.put(key, value);
+        settingsMap.put(key, value);
     }
 
     public synchronized void remove(String key) {
-	settingsMap.remove(key);
+        settingsMap.remove(key);
     }
 
     public synchronized String get(String key) {
-	return settingsMap.get(key);
+        return settingsMap.get(key);
     }
 }

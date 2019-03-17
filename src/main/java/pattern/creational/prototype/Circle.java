@@ -7,20 +7,20 @@ public class Circle extends Shape {
     }
 
     public Circle(Circle base) {
-	super(base);
-	radius = base.radius;
+        super(base);
+        radius = base.radius;
     }
 
     public double getRadius() {
-	return radius;
+        return radius;
     }
 
     public void setRadius(double radius) {
-	this.radius = radius;
+        this.radius = radius;
     }
 
     @Override
     public Shape clone() {
-	return new Circle(this);
+        return new Circle(this);
     }
 }

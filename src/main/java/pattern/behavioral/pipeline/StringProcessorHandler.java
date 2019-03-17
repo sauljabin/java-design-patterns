@@ -12,18 +12,18 @@ public class StringProcessorHandler {
     private List<StringProcessor> stringProcessors;
 
     public StringProcessorHandler() {
-	this.stringProcessors = new LinkedList<>();
+        this.stringProcessors = new LinkedList<>();
     }
 
     public StringProcessorHandler add(StringProcessor stringProcessor) {
-	stringProcessors.add(stringProcessor);
-	return this;
+        stringProcessors.add(stringProcessor);
+        return this;
     }
 
     public String execute(String stringToProcess) {
-	for (StringProcessor stringProcessor : stringProcessors) {
-	    stringToProcess = stringProcessor.execute(stringToProcess);
-	}
-	return stringToProcess;
+        for (StringProcessor stringProcessor : stringProcessors) {
+            stringToProcess = stringProcessor.execute(stringToProcess);
+        }
+        return stringToProcess;
     }
 }

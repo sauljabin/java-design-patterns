@@ -9,32 +9,32 @@ public class Person {
     private String lastName;
 
     public Person(String firstName, String lastName) {
-	this.firstName = firstName;
-	this.lastName = lastName;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public static PersonBuilder builder() {
-	return new PersonBuilder();
+        return new PersonBuilder();
     }
 
     public String getFirstName() {
-	return firstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-	this.firstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-	return lastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-	this.lastName = lastName;
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-	return String.format("%s %s", firstName, lastName);
+        return String.format("%s %s", firstName, lastName);
     }
 }

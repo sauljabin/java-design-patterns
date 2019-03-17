@@ -9,16 +9,16 @@ public class PersonBuilder {
     private String lastName;
 
     public PersonBuilder firstName(String firstName) {
-	this.firstName = firstName;
-	return this;
+        this.firstName = firstName;
+        return this;
     }
 
     public PersonBuilder lastName(String lastName) {
-	this.lastName = lastName;
-	return this;
+        this.lastName = lastName;
+        return this;
     }
 
     public Person build() {
-	return new Person(firstName, lastName);
+        return new Person(firstName, lastName);
     }
 }

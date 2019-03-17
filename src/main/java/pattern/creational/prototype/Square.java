@@ -8,29 +8,29 @@ public class Square extends Shape {
     }
 
     public Square(Square base) {
-	super(base);
-	width = base.width;
-	height = base.height;
+        super(base);
+        width = base.width;
+        height = base.height;
     }
 
     public double getWidth() {
-	return width;
+        return width;
     }
 
     public void setWidth(double width) {
-	this.width = width;
+        this.width = width;
     }
 
     public double getHeight() {
-	return height;
+        return height;
     }
 
     public void setHeight(double height) {
-	this.height = height;
+        this.height = height;
     }
 
     @Override
     public Shape clone() {
-	return new Square(this);
+        return new Square(this);
     }
 }
