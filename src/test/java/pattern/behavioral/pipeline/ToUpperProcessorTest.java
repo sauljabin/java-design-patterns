@@ -11,6 +11,7 @@ public class ToUpperProcessorTest {
 
         String returnedString = toUpperProcessor.execute("word");
 
-        assertThat(returnedString).isEqualTo("WORD");
+        assertThat(returnedString)
+                .isEqualTo("WORD");
     }
 }

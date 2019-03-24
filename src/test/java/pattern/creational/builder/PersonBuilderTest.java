@@ -12,19 +12,29 @@ public class PersonBuilderTest {
     public void shouldReturnAPersonWithCorrectFirstName() {
         PersonBuilder personBuilder = new PersonBuilder();
 
-        String firstName = faker.name().firstName();
-        Person person = personBuilder.firstName(firstName).build();
+        String firstName = faker
+                .name()
+                .firstName();
+        Person person = personBuilder
+                .firstName(firstName)
+                .build();
 
-        assertThat(person.getFirstName()).isEqualTo(firstName);
+        assertThat(person.getFirstName())
+                .isEqualTo(firstName);
     }
 
     @Test
     public void shouldReturnAPersonWithCorrectLastName() {
         PersonBuilder personBuilder = new PersonBuilder();
 
-        String lastName = faker.name().lastName();
-        Person person = personBuilder.lastName(lastName).build();
+        String lastName = faker
+                .name()
+                .lastName();
+        Person person = personBuilder
+                .lastName(lastName)
+                .build();
 
-        assertThat(person.getLastName()).isEqualTo(lastName);
+        assertThat(person.getLastName())
+                .isEqualTo(lastName);
     }
 }

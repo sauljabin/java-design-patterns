@@ -17,15 +17,18 @@ public class SettingsTest {
 
     @Test
     public void shouldGetSameInstance() {
-        assertThat(Settings.getInstance()).isSameAs(settings);
+        assertThat(Settings.getInstance())
+                .isSameAs(settings);
     }
 
     @Test
     public void shouldSetGetAndRemoveASetting() {
         settings.set(KEY, VALUE);
-        assertThat(settings.get(KEY)).isEqualTo(VALUE);
+        assertThat(settings.get(KEY))
+                .isEqualTo(VALUE);
 
         settings.remove(KEY);
-        assertThat(settings.get(KEY)).isNull();
+        assertThat(settings.get(KEY))
+                .isNull();
     }
 }

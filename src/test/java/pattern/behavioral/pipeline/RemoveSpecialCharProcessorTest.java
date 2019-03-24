@@ -11,6 +11,7 @@ public class RemoveSpecialCharProcessorTest {
 
         String returnedString = removeSpecialCharProcessor.execute(".pro$gr!a?ming");
 
-        assertThat(returnedString).isEqualTo("programing");
+        assertThat(returnedString)
+                .isEqualTo("programing");
     }
 }

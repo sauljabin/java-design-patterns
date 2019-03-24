@@ -23,7 +23,8 @@ public class ConsoleTest {
 
         Snapshot output = console.generateSnapshot();
 
-        assertThat(output.getCommand()).isEqualTo(randomString);
+        assertThat(output.getCommand())
+                .isEqualTo(randomString);
     }
 
     @Test
@@ -34,7 +35,8 @@ public class ConsoleTest {
         console.restoreFromSnapshot(snapshot);
         Snapshot output = console.generateSnapshot();
 
-        assertThat(output.getCommand()).isEqualTo(randomString);
+        assertThat(output.getCommand())
+                .isEqualTo(randomString);
     }
 
 }

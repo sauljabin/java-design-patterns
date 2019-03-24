@@ -25,6 +25,7 @@ public class CompressorTest {
 
         compressor.compress(files);
 
-        verify(format).compress(files);
+        verify(format)
+                .compress(files);
     }
 }

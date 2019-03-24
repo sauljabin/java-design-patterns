@@ -7,11 +7,13 @@ package pattern.creational.factorymethod;
  */
 public class PaymentFactory {
     public static Payment createPayment(PaymentType paymentType) {
-        if (paymentType.equals(PaymentType.CASH)) {
-            return new Cash();
-        } else if (paymentType.equals(PaymentType.CREDIT_CARD)) {
-            return new CreditCard();
+        switch (paymentType) {
+            case CASH:
+                return new Cash();
+            case CREDIT_CARD:
+                return new CreditCard();
+            default:
+                return null;
         }
-        return null;
     }
 }

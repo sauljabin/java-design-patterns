@@ -6,7 +6,6 @@ public class SingletonExample {
 
         settings.set("db.name", "test");
 
-        System.out.println(Settings.getInstance().get("db.name")); // Se llama al método getInstance de nuevo. Salida:
-        // test
+        System.out.println(Settings.getInstance().get("db.name")); // Se llama al método getInstance de nuevo. Salida: test
     }
 }

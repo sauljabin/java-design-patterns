@@ -28,21 +28,23 @@ public class StringProcessorHandlerTest {
 
         stringProcessorHandler.add(expectedProcessor);
 
-        verify(stringProcessors).add(expectedProcessor);
+        verify(stringProcessors)
+                .add(expectedProcessor);
     }
 
     @Test
     public void shouldReturnItselfWhenAddNewProcessor() {
         StringProcessorHandler handler = stringProcessorHandler.add(mock(StringProcessor.class));
 
-        assertThat(handler).isEqualTo(stringProcessorHandler);
+        assertThat(handler)
+                .isEqualTo(stringProcessorHandler);
     }
 
     @Test
     public void shouldInvokeEachProcessorExecuteFunction() {
-        String firstOutput = new String();
-        String secondOutput = new String();
-        String originalInput = new String();
+        String firstOutput = "";
+        String secondOutput = "";
+        String originalInput = "";
         StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
         StringProcessor firstProcessor = mock(StringProcessor.class);
         StringProcessor secondProcessor = mock(StringProcessor.class);
@@ -56,6 +58,7 @@ public class StringProcessorHandlerTest {
         inOrder.verify(firstProcessor).execute(originalInput);
         inOrder.verify(secondProcessor).execute(firstOutput);
 
-        assertThat(processedString).isEqualTo(secondOutput);
+        assertThat(processedString)
+                .isEqualTo(secondOutput);
     }
 }

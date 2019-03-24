@@ -28,7 +28,8 @@ public class CircleTest {
     public void shouldGetNewInstance() {
         Circle circle = new Circle();
 
-        assertThat(circle).isNotEqualTo(circle.clone());
+        assertThat(circle)
+                .isNotEqualTo(circle.clone());
     }
 
     @Test
@@ -40,9 +41,12 @@ public class CircleTest {
 
         Shape clone = circle.clone();
 
-        assertThat(clone.getX()).isEqualTo(x);
-        assertThat(clone.getY()).isEqualTo(y);
-        assertThat(clone.getColor()).isEqualTo(color);
+        assertThat(clone.getX())
+                .isEqualTo(x);
+        assertThat(clone.getY())
+                .isEqualTo(y);
+        assertThat(clone.getColor())
+                .isEqualTo(color);
     }
 
     @Test
@@ -52,6 +56,7 @@ public class CircleTest {
 
         Circle clone = (Circle) circle.clone();
 
-        assertThat(clone.getRadius()).isEqualTo(radius);
+        assertThat(clone.getRadius())
+                .isEqualTo(radius);
     }
 }

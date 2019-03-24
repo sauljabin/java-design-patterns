@@ -15,7 +15,8 @@ public class HistoryTest {
         history.addSnapshot(expectedObject);
         Snapshot output = history.getSnapshot(0);
 
-        assertThat(output).isSameAs(expectedObject);
+        assertThat(output)
+                .isSameAs(expectedObject);
     }
 
     @Test
@@ -28,7 +29,8 @@ public class HistoryTest {
         history.addSnapshot(expectedObject);
         Snapshot output = history.getSnapshot(1);
 
-        assertThat(output).isSameAs(expectedObject);
+        assertThat(output)
+                .isSameAs(expectedObject);
     }
 
 }

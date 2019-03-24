@@ -5,11 +5,13 @@ package pattern.creational.abstractfactory;
  */
 public class GuiFactorySelector {
     public static GuiFactory getFactory(OS os) {
-        if (os.equals(OS.LINUX)) {
-            return new LinuxFactory();
-        } else if (os.equals(OS.WINDOWS)) {
-            return new WindowsFactory();
+        switch (os) {
+            case LINUX:
+                return new LinuxFactory();
+            case WINDOWS:
+                return new WindowsFactory();
+            default:
+                return null;
         }
-        return null;
     }
 }

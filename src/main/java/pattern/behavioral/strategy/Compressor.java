@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.List;
 
 /**
- * Clase de contexto. Es la clase que ejecuta el algoritmo, a través de la clase
+ * Clase de contexto. Es la clase que ejecuta el algoritmo a través de la clase
  * strategy.
  */
 public class Compressor {

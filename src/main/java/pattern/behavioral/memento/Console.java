@@ -1,5 +1,8 @@
 package pattern.behavioral.memento;
 
+/**
+ * Clase que usa mememto. Genera snapshots continuos.
+ */
 public class Console {
 
     private String command;

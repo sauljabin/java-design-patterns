@@ -9,7 +9,10 @@ public class LinuxFactoryTest {
     public void shouldCreateTheCorrectComponents() {
         LinuxFactory linuxFactory = new LinuxFactory();
 
-        assertThat(linuxFactory.createButton()).isInstanceOf(LinuxButton.class);
-        assertThat(linuxFactory.createPanel()).isInstanceOf(LinuxPanel.class);
+        assertThat(linuxFactory.createButton())
+                .isInstanceOf(LinuxButton.class);
+
+        assertThat(linuxFactory.createPanel())
+                .isInstanceOf(LinuxPanel.class);
     }
 }

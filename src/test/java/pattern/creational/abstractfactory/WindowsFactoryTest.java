@@ -9,7 +9,10 @@ public class WindowsFactoryTest {
     public void shouldCreateTheCorrectComponents() {
         WindowsFactory windowsFactory = new WindowsFactory();
 
-        assertThat(windowsFactory.createButton()).isInstanceOf(WindowsButton.class);
-        assertThat(windowsFactory.createPanel()).isInstanceOf(WindowsPanel.class);
+        assertThat(windowsFactory.createButton())
+                .isInstanceOf(WindowsButton.class);
+
+        assertThat(windowsFactory.createPanel())
+                .isInstanceOf(WindowsPanel.class);
     }
 }

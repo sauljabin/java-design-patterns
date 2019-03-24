@@ -30,7 +30,8 @@ public class SquareTest {
     public void shouldGetNewInstance() {
         Square square = new Square();
 
-        assertThat(square).isNotEqualTo(square.clone());
+        assertThat(square)
+                .isNotEqualTo(square.clone());
     }
 
     @Test
@@ -42,9 +43,12 @@ public class SquareTest {
 
         Shape clone = square.clone();
 
-        assertThat(clone.getX()).isEqualTo(x);
-        assertThat(clone.getY()).isEqualTo(y);
-        assertThat(clone.getColor()).isEqualTo(color);
+        assertThat(clone.getX())
+                .isEqualTo(x);
+        assertThat(clone.getY())
+                .isEqualTo(y);
+        assertThat(clone.getColor())
+                .isEqualTo(color);
     }
 
     @Test
@@ -55,7 +59,9 @@ public class SquareTest {
 
         Square clone = (Square) square.clone();
 
-        assertThat(clone.getWidth()).isEqualTo(width);
-        assertThat(clone.getHeight()).isEqualTo(height);
+        assertThat(clone.getWidth())
+                .isEqualTo(width);
+        assertThat(clone.getHeight())
+                .isEqualTo(height);
     }
 }
