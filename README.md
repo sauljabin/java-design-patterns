@@ -17,11 +17,13 @@ para explicarlos en español con ejemplos.
     - [Pipeline](#pipeline)
     - [Strategy](#strategy)
     - [Memento](#memento)
+- [Patrones Estructurales](#patrones-estructurales)
+    - [Adapter](#adapter)
 
 ## Enlaces
 
-- [mcdonaldland.info](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf)
 - [refactoring.guru](https://refactoring.guru)
+- [mcdonaldland.info](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf)
 - [sourcemaking.com](https://sourcemaking.com/)
 - [tutorialspoint.com](https://www.tutorialspoint.com/design_pattern)
 - [java-design-patterns.com](http://java-design-patterns.com/patterns/)
@@ -244,4 +246,21 @@ history.addSnapshot(console.generateSnapshot());
 console.restoreFromSnapshot(history.getSnapshot(0));
 	
 console.exec(); // Salida: Exec command: ls -la
+```
+
+## Patrones de Estructurales
+
+### [Adapter](src/main/java/pattern/structural/adapter)
+Ejemplo de uso:
+
+```
+Fahrenheit fahrenheit = new Fahrenheit(98.6);
+
+List<MetricTemperatureSystem> temperatureList = Arrays.asList(
+    new Celsius(37),
+    new CelsiusAdapter(fahrenheit)
+);
+
+System.out.println(fahrenheit); // Salida: 98.6° F
+System.out.println(temperatureList); // Salida: [37.0° C, 37.0° C]
 ```
