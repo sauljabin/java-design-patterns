@@ -252,10 +252,13 @@ console.exec(); // Salida: Exec command: ls -la
 
 ### [Adapter](src/main/java/pattern/structural/adapter)
 
-Este patrón permite que los objetos con interfaces incompatibles colaboren.
-
 Un adaptador envuelve (wraps) la lógica de un objeto, la cual no puede ser
 alcanzada debido a interfaces incompatibles.
+
+Es muy util cuando se quiere incluir una clase de terceros
+a nuestra base de código pero, esta usa o retorna tipos de objetos no
+compatibles con nuestra aplicación. Es necesario que el adaptador pertenezca (herede)
+de una familia de clases.
 
 ![adapter](plantuml/adapter.png)
 
