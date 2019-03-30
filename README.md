@@ -248,9 +248,17 @@ console.restoreFromSnapshot(history.getSnapshot(0));
 console.exec(); // Salida: Exec command: ls -la
 ```
 
-## Patrones de Estructurales
+## Patrones Estructurales
 
 ### [Adapter](src/main/java/pattern/structural/adapter)
+
+Este patrón permite que los objetos con interfaces incompatibles colaboren.
+
+Un adaptador envuelve (wraps) la lógica de un objeto, la cual no puede ser
+alcanzada debido a interfaces incompatibles.
+
+![adapter](plantuml/adapter.png)
+
 Ejemplo de uso:
 
 ```
