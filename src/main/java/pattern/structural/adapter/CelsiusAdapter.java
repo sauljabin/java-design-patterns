@@ -1,5 +1,8 @@
 package pattern.structural.adapter;
 
+/**
+ * Clase adaptadora que envuelve al objeto incompatible
+ */
 public class CelsiusAdapter implements MetricTemperatureSystem {
 
     private static final double BASE_SCALE = 32.;

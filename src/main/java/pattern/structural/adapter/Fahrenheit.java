@@ -1,5 +1,8 @@
 package pattern.structural.adapter;
 
+/**
+ * Objeto incompatible
+ */
 public class Fahrenheit implements ImperialTemperatureSystem {
     private double temperature;
 
