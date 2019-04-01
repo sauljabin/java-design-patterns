@@ -1,4 +1,4 @@
-file=*
+file=*/*
 
 clean:
 	@./gradlew clean
