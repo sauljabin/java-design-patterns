@@ -19,6 +19,7 @@ para explicarlos en español con ejemplos.
     - [Memento](#memento)
 - [Patrones Estructurales](#patrones-estructurales)
     - [Adapter](#adapter)
+    - [Bridge](#bridge)
 
 ## Enlaces
 
