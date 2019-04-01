@@ -1,21 +1,20 @@
 @startuml
 
 class Person {
-String firstName
-String lastName
-static PersonBuilder builder()
+    String firstName
+    String lastName
+    static PersonBuilder builder()
 }
 
 class PersonBuilder {
-String firstName
-String lastName
-PersonBuilder firstName(String firstName)
-PersonBuilder lastName(String lastName)
-Person build()
+    String firstName
+    String lastName
+    PersonBuilder firstName(String firstName)
+    PersonBuilder lastName(String lastName)
+    Person build()
 }
 
-PersonBuilder *-up- Person
-PersonBuilder --> Person
+PersonBuilder o-u-> Person
 
 note "El método builder() instancia la clase\nbuilder específica para Person" as PersonNote
 PersonNote .r. Person

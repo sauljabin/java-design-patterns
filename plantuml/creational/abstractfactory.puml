@@ -1,57 +1,57 @@
 @startuml
 
 interface GuiFactory {
-Button createButton()
-Panel createPanel()
+    Button createButton()
+    Panel createPanel()
 }
 
 GuiFactory <|-- WindowsFactory
 GuiFactory <|-- LinuxFactory
 
 enum OS {
-WINDOWS
-LINUX
+    WINDOWS
+    LINUX
 }
 
 class GuiFactorySelector {
-GuiFactory getFactory(OS os)
+    GuiFactory getFactory(OS os)
 }
 
 interface Component {
-void paint()
+    void paint()
 }
 interface Panel
 interface Button
 
-Button -down-|> Component
-Panel -down-|> Component
+Button -d-|> Component
+Panel -d-|> Component
 
-WindowsButton -down-|> Button
-LinuxButton -down-|> Button
+WindowsButton -d-|> Button
+LinuxButton -d-|> Button
 
-WindowsPanel -down-|> Panel
-LinuxPanel -down-|> Panel
+WindowsPanel -d-|> Panel
+LinuxPanel -d-|> Panel
 
 GuiFactorySelector o-- WindowsFactory
 GuiFactorySelector o-- LinuxFactory
 GuiFactorySelector <- OS
 
-WindowsFactory o-down- WindowsPanel
-WindowsFactory o-down- WindowsButton
+WindowsFactory o-d- WindowsPanel
+WindowsFactory o-d- WindowsButton
 
-LinuxFactory o-down- LinuxPanel
-LinuxFactory o-down- LinuxButton
+LinuxFactory o-d- LinuxPanel
+LinuxFactory o-d- LinuxButton
 
 note "Retornará el Factory solicitado" as NoteGuiFactorySelector
-GuiFactorySelector .right. NoteGuiFactorySelector
+GuiFactorySelector .r. NoteGuiFactorySelector
 
 note "Abstract Factory" as NoteGuiFactory
-GuiFactory .left. NoteGuiFactory
+GuiFactory .l. NoteGuiFactory
 
 note "return new WindowsButton()\nreturn new WindowsPanel()" as NoteWindowsFactory
-WindowsFactory .right. NoteWindowsFactory
+WindowsFactory .r. NoteWindowsFactory
 
 note "return new LinuxButton()\nreturn new LinuxPanel()" as NoteLinuxFactory
-LinuxFactory .left. NoteLinuxFactory
+LinuxFactory .l. NoteLinuxFactory
 
 @enduml

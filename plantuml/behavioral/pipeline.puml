@@ -1,0 +1,24 @@
+@startuml
+
+interface StringProcessor {
+    String execute(String input)
+}
+
+RemoveSpecialCharProcessor -u-|> StringProcessor
+ToUpperProcessor -u-|> StringProcessor
+
+class StringProcessorHandler {
+    StringProcessorHandler add(StringProcessor stringProcessor)
+    String execute(String stringToProcess)
+}
+
+RemoveSpecialCharProcessor <--o StringProcessorHandler
+ToUpperProcessor <--o StringProcessorHandler
+
+note "Clase que controla el Pipeline" as NoteStringProcessorHandler
+StringProcessorHandler .r. NoteStringProcessorHandler
+
+note "Stage" as NoteStringProcessor
+StringProcessor .r. NoteStringProcessor
+
+@enduml

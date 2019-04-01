@@ -1,0 +1,32 @@
+@startuml
+abstract class Logger {
+    protected LoggerOutput loggerOutput
+    Logger(LoggerOutput loggerOutput)
+    abstract void log(String message)
+}
+
+interface LoggerOutput {
+    void output(String message);
+}
+
+FileLoggerOutput -u-|> LoggerOutput
+TerminalLoggerOutput -u-|> LoggerOutput
+
+class InfoLogger {
+    InfoLogger(LoggerOutput loggerOutput)
+}
+
+class WarnLogger {
+    InfoLogger(LoggerOutput loggerOutput)
+}
+
+class ErrorLogger {
+    InfoLogger(LoggerOutput loggerOutput)
+}
+
+InfoLogger -u-|>  Logger
+WarnLogger -u-|>  Logger
+ErrorLogger -u-|>  Logger
+
+Logger *-r-> LoggerOutput
+@enduml

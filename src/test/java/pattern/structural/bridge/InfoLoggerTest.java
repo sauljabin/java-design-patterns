@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class InfoLoggerTest {
+
     @Test
     public void shouldInvokeConcreteImplementor() {
         LoggerOutput loggerOutput = mock(LoggerOutput.class);

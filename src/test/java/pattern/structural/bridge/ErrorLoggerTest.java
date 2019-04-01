@@ -18,5 +18,4 @@ public class ErrorLoggerTest {
 
         verify(loggerOutput).output("ERROR: " + message);
     }
-
 }

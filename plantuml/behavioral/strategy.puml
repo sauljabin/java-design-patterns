@@ -12,7 +12,7 @@ class Compressor {
 RarCompression -u-|> CompressionFormat
 ZipCompression -u-|> CompressionFormat
 
-Compressor *-d- CompressionFormat
+Compressor *-d-> CompressionFormat
 
 note "Estrategia" as NoteEstrategia
 CompressionFormat ..l.. NoteEstrategia

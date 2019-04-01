@@ -56,7 +56,7 @@ con efectivo o con tarjeta de crédito. Se crean dos clases de tipo pago,
 cada una con un comportamiento diferente, se utiliza un factory para 
 obtener la clase correcta según sea el caso.
 
-![factorymethod](plantuml/factorymethod.png)
+![factorymethod](plantuml/creational/factorymethod.png)
 
 Ejemplo de uso:
 
@@ -78,7 +78,7 @@ En el ejemplo se necesita crear objetos gráficos como: Button, Panel, Windows, 
 Debido a que se desea que la aplicación sea multiplataforma, se crean Factories para crear los objetos
 gráficos dependiendo de la plataforma (Windows, Linux).
 
-![abstractfactory](plantuml/abstractfactory.png)
+![abstractfactory](plantuml/creational/abstractfactory.png)
 
 Ejemplo de uso:
 
@@ -105,7 +105,7 @@ En el ejemplo se presenta un uso común, el acceso a configuraciones en la aplic
 Generalmente las configuraciones son compartidas, y se necesita acceder a ellas desde cualquier
 punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual.
 
-![singleton](plantuml/singleton.png)
+![singleton](plantuml/creational/singleton.png)
 
 Ejemplo de uso:
 
@@ -126,7 +126,7 @@ cuales afectan a muchas clases cuando se cambia su firma.
 También encapsula lógica especifica de construcción del objeto,
 abstrayendo al usuario de este conocimiento.
 
-![builder](plantuml/builder.png)
+![builder](plantuml/creational/builder.png)
 
 Ejemplo de uso:
 
@@ -154,7 +154,7 @@ En el ejemplo asumimos que existen formas (shapes) que se dibujan en un canvas, 
 dar la funcionalidad de copiar y pegar. Se utiliza este patrón
 para poder clonar un shape y que su clon tenga todos sus atributos.
 
-![prototype](plantuml/prototype.png)
+![prototype](plantuml/creational/prototype.png)
 
 Ejemplo de uso:
 
@@ -181,7 +181,7 @@ cada proceso tiene una única responsabilidad, como por ejemplo: remover caracte
 especiales o colocar en mayúsculas las letras. Se crea una clase principal (handler)
 con la responsabilidad de ejecutar cada etapa en el orden asignado. 
 
-![pipeline](plantuml/pipeline.png)
+![pipeline](plantuml/behavioral/pipeline.png)
 
 Ejemplo de uso:
 
@@ -208,7 +208,7 @@ Permite definir una familia de algoritmos, encapsular cada uno y hacerlos interc
 Es útil cuando se tienes un objeto que debería poder hacer la misma tarea de muchas maneras diferentes. 
 Esas tareas se pueden descomponer en clases de una misma familia.
 
-![pipeline](plantuml/strategy.png)
+![pipeline](plantuml/behavioral/strategy.png)
 
 Ejemplo de uso:
 
@@ -228,7 +228,7 @@ Patrón de diseño de comportamiento que permite capturar el estado interno de u
 Es útil cuando necesitas hacer instantáneas de algunos objetos para restaurar su estado más tarde.
 Permite producir copias completas del estado de un objeto y almacenarlas por separado del objeto. 
 
-![pipeline](plantuml/memento.png)
+![pipeline](plantuml/behavioral/memento.png)
 
 Ejemplo de uso:
 
@@ -260,7 +260,7 @@ a nuestra base de código pero, esta usa o retorna tipos de objetos no
 compatibles con nuestra aplicación. Es necesario que el adaptador pertenezca (herede)
 de una familia de clases.
 
-![adapter](plantuml/adapter.png)
+![adapter](plantuml/structural/adapter.png)
 
 Ejemplo de uso:
 

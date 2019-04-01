@@ -1,19 +1,19 @@
 @startuml
 
 interface Payment {
-void doPayment(double money)
+    void doPayment(double money)
 }
 
 Cash --|> Payment
 CreditCard --|> Payment
 
 class PaymentFactory {
-Payment createPayment(PaymentType paymentType)
+    Payment createPayment(PaymentType paymentType)
 }
 
 enum PaymentType {
-CREDIT_CARD
-CASH
+    CREDIT_CARD
+    CASH
 }
 
 PaymentFactory <-- PaymentType

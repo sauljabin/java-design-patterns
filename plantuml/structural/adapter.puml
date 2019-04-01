@@ -1,0 +1,25 @@
+@startuml
+
+interface ImperialTemperatureSystem {
+    double getTemperature()
+    void setTemperature(double temperature)
+}
+
+interface MetricTemperatureSystem {
+    double getTemperature()
+    void setTemperature(double temperature)
+}
+
+CelsiusAdapter -u-|> MetricTemperatureSystem
+Celsius -u-|> MetricTemperatureSystem
+Fahrenheit -u-|> ImperialTemperatureSystem
+
+CelsiusAdapter *-l-> Fahrenheit
+
+note "Clase incompatible" as NoteImperial
+Fahrenheit .. NoteImperial
+
+note "Clase adaptadora\nnew CelsiusAdapter(new Fahrenheit(98.6))" as NoteCelsius
+CelsiusAdapter .. NoteCelsius
+
+@enduml
