@@ -1,11 +1,21 @@
 package pattern.structural.adapter;
 
+import com.github.javafaker.Faker;
 import org.assertj.core.util.DoubleComparator;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CelsiusAdapterTest {
+
+    private static final double DOUBLE_PRECISION = 0.000001;
+    private double random;
+
+    @Before
+    public void setUp() throws Exception {
+        random = Faker.instance().number().randomDouble(2, 0, 100);
+    }
 
     @Test
     public void shouldConvert32FahrenheitToCelsius() {
@@ -30,26 +40,24 @@ public class CelsiusAdapterTest {
 
     @Test
     public void shouldConvertRandomFahrenheitToCelsius() {
-        double random = Math.random();
         Fahrenheit fahrenheit = new Fahrenheit(random);
 
         CelsiusAdapter celsiusAdapter = new CelsiusAdapter(fahrenheit);
 
         assertThat(celsiusAdapter.getTemperature())
-                .usingComparator(new DoubleComparator(0.000001))
+                .usingComparator(new DoubleComparator(DOUBLE_PRECISION))
                 .isEqualTo((random - 32.) * 5. / 9.);
     }
 
     @Test
     public void shouldConvertRandomCelsiusToFahrenheit() {
-        double random = Math.random();
         Fahrenheit fahrenheit = new Fahrenheit();
 
         CelsiusAdapter celsiusAdapter = new CelsiusAdapter(fahrenheit);
         celsiusAdapter.setTemperature(random);
 
         assertThat(fahrenheit.getTemperature())
-                .usingComparator(new DoubleComparator(0.000001))
+                .usingComparator(new DoubleComparator(DOUBLE_PRECISION))
                 .isEqualTo(random * 9. / 5. + 32.);
     }
 }
