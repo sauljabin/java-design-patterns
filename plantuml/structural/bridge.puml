@@ -29,4 +29,20 @@ WarnLogger -u-|>  Logger
 ErrorLogger -u-|>  Logger
 
 Logger *-r-> LoggerOutput
+
+note "Abstraction" as Abstraction
+Logger .l. Abstraction
+
+note "Refined abstraction" as RefinedAbstraction
+InfoLogger .d. RefinedAbstraction
+WarnLogger .d. RefinedAbstraction
+ErrorLogger .d. RefinedAbstraction
+
+note "Implementor" as Implementor
+LoggerOutput .r. Implementor
+
+note "Concrete implementor" as ConcreteImplementor
+FileLoggerOutput .d. ConcreteImplementor
+TerminalLoggerOutput .d. ConcreteImplementor
+
 @enduml
