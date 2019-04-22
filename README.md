@@ -20,6 +20,7 @@ para explicarlos en español con ejemplos.
 - [Patrones Estructurales](#patrones-estructurales)
     - [Adapter](#adapter)
     - [Bridge](#bridge)
+    - [Composite](#composite)
 
 ## Enlaces
 
@@ -298,4 +299,28 @@ infoLogger.log("message"); // Salida: INFO: message
 
 ErrorLogger errorLogger = new ErrorLogger(new FileLoggerOutput("error.log"));
 errorLogger.log("message"); // Salida: File: error.log ERROR: message
+```
+
+### [Composite](src/main/java/pattern/structural/composite)
+
+Es un patrón de diseño estructural que le permite componer objetos en estructuras de árbol. 
+Se usa en estructuras que necesitan composición anidada o recursiva. Un ejemplo puede ser la creación de interfaces
+gráficas. 
+
+![bridge](plantuml/structural/composite.png)
+
+Ejemplo de uso:
+
+```
+Window window = new Window("Main Window");
+
+Panel firstPanel = new Panel("First Panel");
+firstPanel.add(new Label("Label in First Panel"));
+window.add(firstPanel);
+
+Panel secondPanel = new Panel("Second Panel");
+secondPanel.add(new Label("Label in Second Panel"));
+window.add(secondPanel);
+
+window.draw();
 ```

@@ -9,7 +9,7 @@ import java.util.List;
  * otros componentes.
  */
 public abstract class Component {
-    private List<Component> components = new ArrayList<>();
+    protected List<Component> components = new ArrayList<>();
 
     public void add(Component component) {
         components.add(component);

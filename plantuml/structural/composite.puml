@@ -1,0 +1,24 @@
+@startuml
+abstract class Component {
+    protected List<Component> components
+    void add(Component component)
+    void remove(Component component)
+    void draw()
+}
+
+Component <-* Component
+
+class Label extends Component
+class Panel extends Component
+class Window extends Component
+
+note "Componente hoja (Leaf)" as leaf
+Label .. leaf
+Panel .. leaf
+
+note "Componente principal (Composite)" as main
+Window .. main
+
+note "Clase que genera la \nestructura de árbol (Component)" as componentNote
+Component .l. componentNote
+@enduml
