@@ -1,0 +1,36 @@
+@startuml
+
+interface DataSource {
+    void writeData(String data)
+    String readData()
+}
+
+note "Interfaz pricipal para las \nclases concretas y decoradoras" as main
+DataSource .r. main
+
+class ConsoleDataSource implements DataSource {
+    void writeData(String data)
+    String readData()
+}
+
+note "Clase concreta" as concrete
+ConsoleDataSource .l. concrete
+
+class DataSourceDecorator implements DataSource {
+    DataSourceDecorator(DataSource source)
+    void writeData(String data)
+    String readData()
+}
+
+note "Clase base decoradora" as base
+DataSourceDecorator .r. base
+
+class EncryptionDecorator extends DataSourceDecorator {
+    EncryptionDecorator(DataSource source)
+    void writeData(String data)
+    String readData()
+}
+
+note "Clase decoradora" as decorator
+EncryptionDecorator .r. decorator
+@enduml
