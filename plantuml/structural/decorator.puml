@@ -25,6 +25,8 @@ class DataSourceDecorator implements DataSource {
 note "Clase base decoradora" as base
 DataSourceDecorator .r. base
 
+DataSourceDecorator *--> DataSource
+
 class EncryptionDecorator extends DataSourceDecorator {
     EncryptionDecorator(DataSource source)
     void writeData(String data)
