@@ -21,6 +21,7 @@ para explicarlos en español con ejemplos.
     - [Adapter](#adapter)
     - [Bridge](#bridge)
     - [Composite](#composite)
+    - [Decorator](#decorator)
 
 ## Enlaces
 
@@ -323,4 +324,27 @@ secondPanel.add(new Label("Label in Second Panel"));
 window.add(secondPanel);
 
 window.draw();
+```
+
+### [Decorator](src/main/java/pattern/structural/decorator)
+
+Decorator es un patrón que permite agregar nuevos comportamientos 
+a los objetos al colocarlos dentro de otros objetos envoltorios (wrappers) especiales.
+
+El patrón [adapter](#adapter) cambia la interfaz de un objeto existente, 
+mientras que el decorator mejora un objeto sin cambiar su interfaz. 
+Además, admite la composición recursiva, 
+que no es posible cuando se usa el adapter.
+
+![bridge](plantuml/structural/decorator.png)
+
+Ejemplo de uso:
+
+```
+ConsoleDataSource consoleDataSource = new ConsoleDataSource();
+String data = consoleDataSource.readData();
+consoleDataSource.writeData(data);
+
+EncryptionDecorator encryptionDecorator = new EncryptionDecorator(consoleDataSource);
+encryptionDecorator.writeData(data);
 ```
