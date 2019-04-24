@@ -1,0 +1,42 @@
+@startuml
+
+package Facade <<Frame>> {
+    interface Connection {
+        Statement createStatement()
+    }
+
+    interface JDBCDriver {
+        String getDBVendor()
+        Connection getConnection()
+    }
+
+    interface Statement {
+        void executeQuery(String query)
+    }
+
+    class DriverManager {
+        static void registerDriver(JDBCDriver driver)
+        static Connection getConnection(String database)
+    }
+
+    DriverManager o--> JDBCDriver
+    JDBCDriver --> Connection
+    Connection --> Statement
+}
+
+note "El cliente no necesita saber \nnada sobre la implementación del\nsubsistema, simplemente interactúa \ncon las interfaces de la fachada" as noteFacade
+Facade .r. noteFacade
+
+package "Oracle Framework" <<Frame>> {
+    class OracleConnection implements Connection
+    class OracleJDBCDriver implements JDBCDriver
+    class OracleStatement implements Statement
+}
+
+package "MySQL Framework" <<Frame>> {
+    class MySQLConnection implements Connection
+    class MySQLJDBCDriver implements JDBCDriver
+    class MySQLStatement implements Statement
+}
+
+@enduml
