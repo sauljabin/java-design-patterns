@@ -23,6 +23,7 @@ para explicarlos en español con ejemplos.
     - [Composite](#composite)
     - [Decorator](#decorator)
     - [Facade](#facade)
+    - [Proxy](#proxy)
 
 ## Enlaces
 
@@ -381,4 +382,32 @@ Class.forName("pattern.structural.facade.mysql.MySQLJDBCDriver");
 connection = DriverManager.getConnection("mysql");
 statement = connection.createStatement();
 statement.executeQuery("select * from employee");
+```
+
+### [Proxy](src/main/java/pattern/structural/proxy)
+
+El proxy es un patrón de diseño estructural que permite 
+proporcionar un sustituto para otro objeto. 
+Un proxy controla el acceso al objeto original, 
+lo que le permite realizar algo antes o después de que 
+la solicitud llegue al objeto original.
+
+Algunas diferencias con el patrón [decorator](#decorator) son:
+
+- El decorator obtiene la referencia del objeto decorado (generalmente a través del constructor), mientras que proxy es responsable de hacerlo solo.
+- Los proxy generalmente son utilizados por los frameworks para agregar seguridad o almacenamiento en caché.
+- El decorator usualmente se usa para agregar un nuevo comportamiento a las clases antiguas o heredadas.
+
+![facade](plantuml/structural/proxy.png)
+
+Ejemplo de uso:
+
+```
+Internet internet = new ProxyInternet();
+try {
+    internet.connectTo("google.com");
+    internet.connectTo("forbidden.com");
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
 ```
