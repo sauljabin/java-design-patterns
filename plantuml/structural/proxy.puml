@@ -1,0 +1,26 @@
+@startuml
+
+interface Internet {
+    void connectTo(String serverhost)
+}
+
+note "Interfaz de lógica de nogocio" as noteInternet
+Internet .l. noteInternet
+
+class RealInternet implements Internet {
+    void connectTo(String serverhost)
+}
+
+note "Clase real, con la lógica de negocio" as noteRealInternet
+RealInternet .l. noteRealInternet
+
+class ProxyInternet implements Internet {
+    private Internet internet = new RealInternet()
+    public void connectTo(String serverhost)
+}
+
+note "Clase proxy, enmascara otro objeto" as noteProxyInternet
+ProxyInternet .l. noteProxyInternet
+
+ProxyInternet *--> RealInternet
+@enduml
