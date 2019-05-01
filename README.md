@@ -24,6 +24,7 @@ para explicarlos en español con ejemplos.
     - [Decorator](#decorator)
     - [Facade](#facade)
     - [Proxy](#proxy)
+    - [Flyweight](#flyweight)
 
 ## Enlaces
 
@@ -398,7 +399,7 @@ Algunas diferencias con el patrón [decorator](#decorator) son:
 - Los proxy generalmente son utilizados por los frameworks para agregar seguridad o almacenamiento en caché.
 - El decorator usualmente se usa para agregar un nuevo comportamiento a las clases antiguas o heredadas.
 
-![facade](plantuml/structural/proxy.png)
+![proxy](plantuml/structural/proxy.png)
 
 Ejemplo de uso:
 
@@ -410,4 +411,25 @@ try {
 } catch (Exception e) {
     System.out.println(e.getMessage());
 }
+```
+
+### [Flyweight](src/main/java/pattern/structural/flyweight)
+
+Flyweight es un patrón que permite optimizar el uso
+de la RAM al compartir partes comunes de estado entre 
+múltiples objetos en lugar de mantener todos los datos en cada objeto.
+
+Solo se separa la parte del objeto que pueden ser compartida entre otros objetos.
+
+![flyweight](plantuml/structural/flyweight.png)
+
+Ejemplo de uso:
+
+```
+TreeType type = TreeTypeFactory.getTreeType("Autumn Oak", Color.YELLOW);
+Tree tree1 = new Tree(10, 10, type);
+Tree tree2 = new Tree(20, 20, type);
+
+tree1.draw();
+tree2.draw();
 ```

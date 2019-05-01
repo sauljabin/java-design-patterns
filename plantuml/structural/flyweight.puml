@@ -1,0 +1,33 @@
+@startuml
+class TreeType {
+    print x
+    int y
+    TreeType type
+    Tree(int x, int y, TreeType type)
+    void draw()
+}
+
+note "Clase flyweight" as N1
+N1 .l. TreeType
+
+class Tree {
+    int x
+    int y
+    TreeType type
+    Tree(int x, int y, TreeType type)
+    void draw()
+}
+
+note "Clase contextual" as N2
+N2 .l. Tree
+
+class TreeTypeFactory {
+    static TreeType getTreeType(String name, Color color)
+}
+
+note "Clase flyweight factory" as N3
+N3 .r. TreeTypeFactory
+
+TreeTypeFactory -> TreeType
+TreeType *--> Tree
+@enduml
