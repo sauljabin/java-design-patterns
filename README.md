@@ -419,7 +419,7 @@ Flyweight es un patrón que permite optimizar el uso
 de la RAM al compartir partes comunes de estado entre 
 múltiples objetos en lugar de mantener todos los datos en cada objeto.
 
-Solo se separa la parte del objeto que pueden ser compartida entre otros objetos.
+Sólo se separa la parte del objeto que pueden ser compartida entre otros objetos.
 
 ![flyweight](plantuml/structural/flyweight.png)
 
