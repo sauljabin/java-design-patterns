@@ -9,13 +9,14 @@ import java.util.List;
  */
 public class ProxyInternet implements Internet {
 
-    private Internet internet = new RealInternet();
     private static List<String> bannedSites;
 
     static {
         bannedSites = new ArrayList<>();
         bannedSites.add("forbidden.com");
     }
+
+    private Internet internet = new RealInternet();
 
     @Override
     public void connectTo(String serverhost) throws Exception {

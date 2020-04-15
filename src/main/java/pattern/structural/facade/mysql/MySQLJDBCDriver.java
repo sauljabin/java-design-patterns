@@ -1,7 +1,7 @@
 package pattern.structural.facade.mysql;
 
-import pattern.structural.facade.DriverManager;
 import pattern.structural.facade.Connection;
+import pattern.structural.facade.DriverManager;
 import pattern.structural.facade.JDBCDriver;
 
 public class MySQLJDBCDriver implements JDBCDriver {

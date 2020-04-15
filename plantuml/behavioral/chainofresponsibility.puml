@@ -1,0 +1,18 @@
+@startuml
+
+interface Interceptor {
+    void handleRequest(Request request);
+    void intercept(Request request);
+    void setNext(Interceptor interceptor);
+    Interceptor getNext();
+}
+class AuthenticationInterceptor extends AbstractInterceptor
+abstract class AbstractInterceptor implements Interceptor
+class AuthorizationInterceptor extends AbstractInterceptor
+
+class Request
+
+note "Implementación de algunos métodos\nEl método 'intercept' ejecuta la cadena" as NoteAbstractInterceptor
+NoteAbstractInterceptor .r. AbstractInterceptor
+
+@enduml

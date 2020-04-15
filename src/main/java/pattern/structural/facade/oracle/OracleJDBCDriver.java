@@ -1,7 +1,7 @@
 package pattern.structural.facade.oracle;
 
-import pattern.structural.facade.DriverManager;
 import pattern.structural.facade.Connection;
+import pattern.structural.facade.DriverManager;
 import pattern.structural.facade.JDBCDriver;
 
 public class OracleJDBCDriver implements JDBCDriver {

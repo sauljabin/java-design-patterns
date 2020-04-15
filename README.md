@@ -15,6 +15,7 @@ para explicarlos en español con ejemplos.
     - [Prototype](#prototype)
 - [Patrones de Comportamiento](#patrones-de-comportamiento)
     - [Pipeline](#pipeline)
+    - [Chain Of Responsibility](#chain-of-reponsibility)
     - [Strategy](#strategy)
     - [Memento](#memento)
 - [Patrones Estructurales](#patrones-estructurales)
@@ -207,6 +208,32 @@ en un orden con una serie de etapas bien definidas. Además, se puede usar
 cuando la salida de una etapa es necesaria como entrada para otra.
 Un paso puede ser o no un requisito previo para otro paso.
 
+### [Chain Of Responsibility](src/main/java/pattern/behavioral/chainofresponsibility)
+
+Consiste en un procesamiento en cadena de un elemento, cada eslabón de la cadena se denomina controlador (handler).
+Al recibir una solicitud, cada controlador decide procesar la solicitud o pasarla al siguiente controlador de la cadena.
+
+En el ejemplo refleja de manera muy básica el funcionamiento de los interceptores en
+un servidor web. Cada interceptor recibe la petición hecha, y la procesa según se responsabilidad.
+Se incluyeron dos interceptores, para autorización y autenticación respectivamente.
+
+![pipeline](plantuml/behavioral/chainofresponsibility.png)
+
+Ejemplo de uso:
+
+```
+AuthorizationInterceptor authorizationInterceptor = new AuthorizationInterceptor();
+
+AuthenticationInterceptor authenticationInterceptor = new AuthenticationInterceptor();
+authenticationInterceptor.setNext(authorizationInterceptor);
+
+Request request = new Request();
+request.setHeaders(Map.of("Access-Token", "123"));
+request.setUrl("http://myweb.com/forbidden");
+
+authenticationInterceptor.intercept(request); // SALIDA: EXCEPTION
+```
+
 ### [Strategy](src/main/java/pattern/behavioral/strategy)
 
 Permite definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables. El patrón permite que el algoritmo varíe independientemente de los clientes que lo utilizan.
@@ -227,9 +254,7 @@ compressor.compress(asList(new File("README.md"))); // Salida: Compressing [READ
 
 ### [Memento](src/main/java/pattern/behavioral/memento)
 
-
 Patrón de diseño de comportamiento que permite capturar el estado interno de un objeto sin exponer su estructura interna, para que el objeto pueda regresar a este estado más adelante.
-
 
 Es útil cuando necesitas hacer instantáneas de algunos objetos para restaurar su estado más tarde.
 Permite producir copias completas del estado de un objeto y almacenarlas por separado del objeto. 
