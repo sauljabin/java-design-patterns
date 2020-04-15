@@ -1,0 +1,34 @@
+@startuml
+class Button implements Component {
+    private final EventManager eventManager
+    public void click()
+    public void addListener(EventListener saveFile)
+}
+
+interface EventListener {
+    void actionPerformed(Component component);
+}
+
+class SaveFileListener implements EventListener
+class ShowMessageListener implements EventListener
+
+class EventManager {
+    private final List<EventListener> listeners
+    public void subscribe(EventListener listener)
+    public void unsubscribe(EventListener listener)
+    public void notify(Component component)
+}
+
+EventManager -o EventListener
+Button --* EventManager
+
+note "Clase Cliente" as notecliente
+Button . notecliente
+
+note "Clase Observable" as observable
+note "Observer" as observer
+
+EventManager .l observable
+EventListener . observer
+
+@enduml
