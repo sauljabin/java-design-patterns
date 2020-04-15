@@ -15,7 +15,7 @@ para explicarlos en español con ejemplos.
     - [Prototype](#prototype)
 - [Patrones de Comportamiento](#patrones-de-comportamiento)
     - [Pipeline](#pipeline)
-    - [Chain Of Responsibility](#chain-of-reponsibility)
+    - [Chain Of Responsibility](#chain-of-responsibility)
     - [Strategy](#strategy)
     - [Memento](#memento)
 - [Patrones Estructurales](#patrones-estructurales)
