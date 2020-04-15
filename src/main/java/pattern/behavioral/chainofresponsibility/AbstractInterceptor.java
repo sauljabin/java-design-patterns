@@ -1,5 +1,9 @@
 package pattern.behavioral.chainofresponsibility;
 
+/**
+ * Clase base de todos los interceptores, implementa la mayoría de los métodos, excepto handleRequest.
+ * El método intercept ejecuta la cadena.
+ */
 public abstract class AbstractInterceptor implements Interceptor {
     private Interceptor next;
 

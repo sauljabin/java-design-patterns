@@ -18,6 +18,7 @@ para explicarlos en español con ejemplos.
     - [Chain Of Responsibility](#chain-of-responsibility)
     - [Strategy](#strategy)
     - [Memento](#memento)
+    - [Observer](#observer)
 - [Patrones Estructurales](#patrones-estructurales)
     - [Adapter](#adapter)
     - [Bridge](#bridge)
@@ -217,7 +218,7 @@ En el ejemplo refleja de manera muy básica el funcionamiento de los interceptor
 un servidor web. Cada interceptor recibe la petición hecha, y la procesa según se responsabilidad.
 Se incluyeron dos interceptores, para autorización y autenticación respectivamente.
 
-![pipeline](plantuml/behavioral/chainofresponsibility.png)
+![chainofresponsibility](plantuml/behavioral/chainofresponsibility.png)
 
 Ejemplo de uso:
 
@@ -241,7 +242,7 @@ Permite definir una familia de algoritmos, encapsular cada uno y hacerlos interc
 Es útil cuando se tienes un objeto que debería poder hacer la misma tarea de muchas maneras diferentes. 
 Esas tareas se pueden descomponer en clases de una misma familia.
 
-![pipeline](plantuml/behavioral/strategy.png)
+![strategy](plantuml/behavioral/strategy.png)
 
 Ejemplo de uso:
 
@@ -259,7 +260,7 @@ Patrón de diseño de comportamiento que permite capturar el estado interno de u
 Es útil cuando necesitas hacer instantáneas de algunos objetos para restaurar su estado más tarde.
 Permite producir copias completas del estado de un objeto y almacenarlas por separado del objeto. 
 
-![pipeline](plantuml/behavioral/memento.png)
+![memento](plantuml/behavioral/memento.png)
 
 Ejemplo de uso:
 
@@ -277,6 +278,28 @@ history.addSnapshot(console.generateSnapshot());
 console.restoreFromSnapshot(history.getSnapshot(0));
 	
 console.exec(); // Salida: Exec command: ls -la
+```
+
+### [Observer](src/main/java/pattern/behavioral/observer)
+
+Observer es un patrón de diseño de comportamiento que permite definir
+un mecanismo de suscripción para notificar a varios objetos
+sobre cualquier evento que ocurra al objeto que están observando.
+
+Es un patrón muy utilizado en las interfaces gráficas.
+
+En el ejemplo cuando se hace clic en un botón se notifica a los observadores
+'guardar archivo' y 'mostrar mensaje'.
+
+![observer](plantuml/behavioral/observer.png)
+
+Ejemplo de uso:
+
+```
+Button button = new Button();
+button.addListener(new SaveFileListener());
+button.addListener(new ShowMessageListener());
+button.click(); // Se notificará a los observers
 ```
 
 ## Patrones Estructurales
