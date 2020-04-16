@@ -20,6 +20,9 @@ public class XmlExporter implements Visitor {
         xml = "<body></body>";
     }
 
+    /**
+     * Este método invoca 'accept' de los objetos visitables.
+     */
     public String export(Document document) {
         return "<document>" + document.getElements()
                 .stream()

@@ -20,6 +20,9 @@ public class JsonExporter implements Visitor {
         json = "\"body\": { }";
     }
 
+    /**
+     * Este método invoca 'accept' de los objetos visitables.
+     */
     public String export(Document document) {
         return "{" + document.getElements()
                 .stream()

@@ -1,0 +1,36 @@
+@startuml
+
+interface Visitable {
+    void accept(Visitor visitor)
+}
+
+interface Visitor {
+    void visit(Header header)
+    void visit(Body body)
+}
+
+interface Element extends Visitable {
+}
+
+class Body implements Element
+class Header implements Element
+
+class JsonExporter implements Visitor {
+    String export(Document document)
+}
+
+class XmlExporter implements Visitor {
+    String export(Document document)
+}
+
+class Document {
+    private List<Element> elements
+    void addElement(Element element)
+    List<Element> getElements()
+}
+
+Document -ro Element
+
+Visitor -r-> Visitable : Visita
+
+@enduml
