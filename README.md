@@ -20,6 +20,7 @@ para explicarlos en español con ejemplos.
     - [Memento](#memento)
     - [Observer](#observer)
     - [Visitor](#visitor)
+    - [Template Method](#template-method)
 - [Patrones Estructurales](#patrones-estructurales)
     - [Adapter](#adapter)
     - [Bridge](#bridge)
