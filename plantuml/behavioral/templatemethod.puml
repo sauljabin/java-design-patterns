@@ -1,0 +1,35 @@
+@startuml
+
+abstract class Animatable {
+    int x
+    int y
+    public int getX()
+    public void setX(int x)
+    public int getY()
+    public void setY(int y)
+    public void updateFrame()
+    public abstract void animate()
+    public abstract void paint()
+}
+
+note "El 'Template Method' es 'updateFrame'" as noteAnimatable
+noteAnimatable .l. Animatable
+
+class Rocket extends Animatable {
+    public void animate()
+    public void paint()
+}
+
+note "Sobrescribe los métodos abstractos pero\nno el template method" as noteRocket
+noteRocket . Rocket
+
+class Game {
+    void start()
+}
+
+note "for (Animatable animatable : animatableObjects) {\n    // Se invoca al template method.\n    animatable.updateFrame();\n}" as noteGame
+noteGame . Game
+
+Game -o Animatable
+
+@enduml

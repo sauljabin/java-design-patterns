@@ -33,8 +33,6 @@ para explicarlos en español con ejemplos.
 
 - [refactoring.guru](https://refactoring.guru)
 - [mcdonaldland.info](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf)
-- [sourcemaking.com](https://sourcemaking.com/)
-- [tutorialspoint.com](https://www.tutorialspoint.com/design_pattern)
 - [java-design-patterns.com](http://java-design-patterns.com/patterns/)
 - [wikipedia](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_dise%C3%B1o)
 
@@ -317,7 +315,7 @@ Puede existir diferentes visitantes, uno para cada nueva capacidad que se desee 
 En el ejemplo es necesario agregar más lógica para exportar cada elemento,
 su utiliza visitadores con la capacidad de exportar en diferentes formatos.
 
-![observer](plantuml/behavioral/visitor.png)
+![visitor](plantuml/behavioral/visitor.png)
 
 Ejemplo de uso:
 
@@ -331,6 +329,60 @@ System.out.println(jsonExporter.export(document));
 
 XmlExporter xmlExporter = new XmlExporter();
 System.out.println(xmlExporter.export(document));
+```
+
+### [Template Method](src/main/java/pattern/behavioral/templatemethod)
+
+El Método de plantilla es un patrón de diseño de 
+comportamiento que define el esqueleto de un algoritmo en la superclase, 
+pero permite que las subclases sobrescriban los pasos específicos 
+del algoritmo sin cambiar su estructura.
+
+En el ejemplo un objeto animatable sobrescribe solamente 'animate' y 'paint'.
+El objeto cliente (Game) no llama directamente los métodos plantillas (pasos específicos),
+sino que invoca 'updateFrame' (el Template Method).
+
+![templatemethod](plantuml/behavioral/templatemethod.png)
+
+Ejemplo de uso:
+
+```java
+/**
+ * Un objeto 2D.
+ */
+public abstract class Animatable {
+    private int x;
+    private int y;
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    /**
+     * Este es el "Template Method".
+     * Puede ser final para que no se herede.
+     */
+    public void updateFrame() {
+        animate();
+        paint();
+    }
+
+    public abstract void animate();
+
+    public abstract void paint();
+}
 ```
 
 ## Patrones Estructurales
