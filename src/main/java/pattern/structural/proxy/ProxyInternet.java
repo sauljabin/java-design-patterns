@@ -1,6 +1,6 @@
 package pattern.structural.proxy;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,21 +9,15 @@ import java.util.List;
  */
 public class ProxyInternet implements Internet {
 
-    private static List<String> bannedSites;
-
-    static {
-        bannedSites = new ArrayList<>();
-        bannedSites.add("forbidden.com");
-    }
-
-    private Internet internet = new RealInternet();
+    private final List<String> bannedSites = Arrays.asList("forbidden.com");
+    private final Internet internet = new RealInternet();
 
     @Override
-    public void connectTo(String serverhost) throws Exception {
-        if (bannedSites.contains(serverhost.toLowerCase())) {
+    public void connectTo(String serverHost) throws Exception {
+        if (bannedSites.contains(serverHost.toLowerCase())) {
             throw new Exception("Access Denied");
         }
 
-        internet.connectTo(serverhost);
+        internet.connectTo(serverHost);
     }
 }
