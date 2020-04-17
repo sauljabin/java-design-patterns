@@ -39,4 +39,7 @@ Server *- ConnectionState
 note "Clase State" as noteState
 ConnectionState . noteState
 
+note "Clase Contexto" as noteContext
+Server .l noteContext
+
 @enduml
