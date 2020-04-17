@@ -1,0 +1,35 @@
+@startuml
+
+interface Mediator {
+    FileTree fileTree
+    TextEditor textEditor
+    SpellChecker spellChecker
+
+    void register(FileTree fileTree)
+    void register(SpellChecker spellChecker)
+    void register(TextEditor textEditor)
+    void notifyFileSelected(File file)
+    void notifyTextChange(String newText)
+    void notifySpellingSuccess()
+    void notifySpellingError()
+}
+
+class FileTree {
+    Mediator mediator
+}
+
+class SpellChecker {
+    Mediator mediator
+}
+
+class TextEditor {
+    Mediator mediator
+}
+
+class GuiController implements Mediator
+
+Mediator *-r-o FileTree
+Mediator *-l-o SpellChecker
+Mediator *-d-o TextEditor
+
+@enduml
