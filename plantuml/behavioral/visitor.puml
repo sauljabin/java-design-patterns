@@ -29,7 +29,7 @@ class Document {
     List<Element> getElements()
 }
 
-Document -ro Element
+Document o-l Element
 
 Visitor -r-> Visitable : Visita
 

@@ -1,0 +1,42 @@
+@startuml
+
+abstract class ConnectionState {
+    abstract void connect(Server server)
+    abstract void start(Server server)
+    abstract void stop(Server server)
+    abstract void disconnect(Server server)
+}
+
+class Closed extends ConnectionState
+class Connected extends ConnectionState
+class Listening extends ConnectionState
+
+class Server {
+    private ConnectionState state
+--
+    public ConnectionState getState()
+    public void setState(ConnectionState state)
+--
+Los siguientes son los métodos que invocan al
+estado
+--
+    public void connect()
+    public void disconnect()
+    public void start()
+    public void stop()
+--
+Los siguientes son métodos relacionados
+a las responsabilidades de Server
+--
+    public void initServer()
+    public void destroyService()
+    public void establishingNewConnection()
+    public void disconnectFromClient()
+}
+
+Server *- ConnectionState
+
+note "Clase State" as noteState
+ConnectionState . noteState
+
+@enduml

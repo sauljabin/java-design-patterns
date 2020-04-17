@@ -30,6 +30,6 @@ class Game {
 note "for (Animatable animatable : animatableObjects) {\n    // Se invoca al template method.\n    animatable.updateFrame();\n}" as noteGame
 noteGame . Game
 
-Game -o Animatable
+Game o- Animatable
 
 @enduml

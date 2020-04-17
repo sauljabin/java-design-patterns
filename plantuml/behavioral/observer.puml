@@ -19,8 +19,8 @@ class EventManager {
     public void notify(Component component)
 }
 
-EventManager -o EventListener
-Button --* EventManager
+EventManager o-- EventListener
+Button *-- EventManager
 
 note "Clase Cliente" as notecliente
 Button . notecliente
