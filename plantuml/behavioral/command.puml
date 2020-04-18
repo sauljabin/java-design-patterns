@@ -1,0 +1,52 @@
+@startuml
+
+interface Command {
+    void execute();
+    void undo();
+}
+
+class Editor {
+    String clipboard
+    String selectedText
+    String text
+
+    String getClipboard()
+    void setClipboard(String clipboard)
+    String getSelectedText()
+    void setSelectedText(String selectedText)
+    String getText()
+    void setText(String text)
+}
+
+class IDE {
+    private Command copyCommand;
+    private Command pasteCommand;
+    private Command undoCommand;
+    private Editor editor;
+
+    Editor getEditor()
+    void clickOnCopyButton()
+    void clickOnPasteButton()
+    void shortcutCopyButton()
+    void shortcutPasteButton()
+    void executeCommand(Command copyCommand)
+    void clickOnUndo()
+}
+
+class Copy implements Command
+class Paste implements Command
+
+Copy *- Editor
+Paste *- Editor
+IDE *- Editor
+
+IDE o-l Command
+
+note "Clase Invoker" as noteInvoker
+IDE . noteInvoker
+
+note "Clase Receiver" as noteReceiver
+Editor . noteReceiver
+
+
+@enduml
