@@ -23,6 +23,7 @@ para explicarlos en español con ejemplos.
     - [Template Method](#template-method)
     - [State](#state)
     - [Mediator](#mediator)
+    - [Iterator](#iterator)
 - [Patrones Estructurales](#patrones-estructurales)
     - [Adapter](#adapter)
     - [Bridge](#bridge)
@@ -471,6 +472,28 @@ public class GuiController implements Mediator {
     public void notifySpellingError() {
         fileTree.highlightError();
     }
+}
+```
+### [Iterator](src/main/java/pattern/behavioral/iterator)
+
+Iterator es un patrón de diseño de comportamiento que 
+permite acceder a los elementos de una colección sin 
+exponer su representación subyacente (lista, pila, árbol, etc.),
+o la lógica de búsqueda.
+
+Es extensamente usado en java y en bibliotecas como JDBC. 
+
+![iterator](plantuml/behavioral/iterator.png)
+
+Ejemplo de uso:
+
+```
+Twitter twitter = new Twitter();
+PostsIterator postsIterator = twitter.findPostsByHashtag("#java");
+
+while (postsIterator.hasNext()){
+    Post post = postsIterator.getNext();
+    System.out.println(post.getContent());
 }
 ```
 

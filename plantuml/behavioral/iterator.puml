@@ -1,0 +1,27 @@
+@startuml
+
+class Post
+class Twitter implements SocialNetwork
+class TwitterIterator implements PostsIterator
+
+interface PostsIterator {
+    boolean hasNext()
+    Post getNext()
+    void reset()
+}
+
+interface SocialNetwork {
+    PostsIterator findPostsByHashtag(String hashtag)
+}
+
+SocialNetwork -> PostsIterator
+PostsIterator -> Post
+Twitter -> TwitterIterator
+
+note "Clase 'Iterable'" as iterableNote
+Twitter .l iterableNote
+
+note "Clase 'Iterator'" as iteratorNote
+TwitterIterator .r iteratorNote
+
+@enduml
