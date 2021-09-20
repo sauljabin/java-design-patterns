@@ -1,4 +1,4 @@
-# Design Patterns in Java
+# Patrones de Diseño en Java
 
 Este proyecto recoge los patrones de diseño más comunes
 para explicarlos en español con ejemplos.
