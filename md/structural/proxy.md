@@ -6,7 +6,7 @@ Un proxy controla el acceso al objeto original,
 lo que le permite realizar algo antes o después de que 
 la solicitud llegue al objeto original.
 
-Algunas diferencias con el patrón [decorator](#decorator) son:
+Algunas diferencias con el patrón [decorator](./decorator.md) son:
 
 - El decorator obtiene la referencia del objeto decorado (generalmente a través del constructor), mientras que proxy es responsable de hacerlo solo.
 - Los proxy generalmente son utilizados por los frameworks para agregar seguridad o almacenamiento en caché.

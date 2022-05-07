@@ -3,7 +3,7 @@
 Decorator es un patrón que permite agregar nuevos comportamientos 
 a los objetos al colocarlos dentro de otros objetos envoltorios (wrappers) especiales.
 
-El patrón [adapter](#adapter) cambia la interfaz de un objeto existente, 
+El patrón [adapter](./adapter.md) cambia la interfaz de un objeto existente, 
 mientras que el decorator mejora un objeto sin cambiar su interfaz. 
 Además, admite la composición recursiva, 
 que no es posible cuando se usa el adapter.
