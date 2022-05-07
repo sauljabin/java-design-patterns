@@ -138,6 +138,55 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="template-method"><a class="header" href="#template-method">Template Method</a></h1>
+<p>El Método de plantilla es un patrón de diseño de 
+comportamiento que define el esqueleto de un algoritmo en la superclase, 
+pero permite que las subclases sobrescriban los pasos específicos 
+del algoritmo sin cambiar su estructura.</p>
+<p>En el ejemplo un objeto animatable sobrescribe solamente 'animate' y 'paint'.
+El objeto cliente (Game) no llama directamente los métodos plantillas (pasos específicos),
+sino que invoca 'updateFrame' (el Template Method). </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/templatemethod.png" alt="templatemethod" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">/**
+ * Un objeto 2D.
+ */
+public abstract class Animatable {
+    private int x;
+    private int y;
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    /**
+     * Este es el &quot;Template Method&quot;.
+     * Puede ser final para que no se herede.
+     */
+    public void updateFrame() {
+        animate();
+        paint();
+    }
+
+    public abstract void animate();
+
+    public abstract void paint();
+}
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/templatemethod">Código</a></p>
+</blockquote>
 
                     </main>
 

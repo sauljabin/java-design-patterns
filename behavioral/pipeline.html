@@ -138,6 +138,30 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h1>
+<p>Consiste en un procesamiento en cadena de un elemento, donde cada paso de la cadena
+genera una salida que será la entrada del paso consecutivo. </p>
+<p>En el ejemplo se necesita ejecutar varios procesos sobre un objeto String,
+cada proceso tiene una única responsabilidad, como por ejemplo: remover caracteres
+especiales o colocar en mayúsculas las letras. Se crea una clase principal (handler)
+con la responsabilidad de ejecutar cada etapa en el orden asignado.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/pipeline.png" alt="pipeline" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
+
+String processedString = stringProcessorHandler
+                .add(new RemoveSpecialCharProcessor())
+                .add(new ToUpperProcessor())
+                .execute(&quot;This$ is an uncl@ean+ed phr#aSe&quot;);
+
+System.out.println(processedString); // Salida: THIS IS AN UNCLEANED PHRASE
+</code></pre>
+<p>Este patrón es muy útil cuando se tiene la necesidad de procesar un objeto (o dato)
+en un orden con una serie de etapas bien definidas. Además, se puede usar
+cuando la salida de una etapa es necesaria como entrada para otra.
+Un paso puede ser o no un requisito previo para otro paso.</p>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/pipeline">Código</a></p>
+</blockquote>
 
                     </main>
 

@@ -144,7 +144,7 @@ para explicarlos en español con ejemplos. Intenta explorar los patrones princip
 e intenta ser un recurso que puede ayudar a esos desarrolladores y desarrolladoras que estan empezando a
 descubrir estos mismos.</p>
 <h2 id="enlaces"><a class="header" href="#enlaces">Enlaces</a></h2>
-<p>A contimuación se listan algunos enlaces que te ayudaran a ahondar en este tema:</p>
+<p>A continuación se listan algunos enlaces que te ayudaran a ahondar en este tema:</p>
 <ul>
 <li><a href="https://refactoring.guru">refactoring.guru</a></li>
 <li><a href="http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf">mcdonaldland.info</a></li>
@@ -158,6 +158,8 @@ descubrir estos mismos.</p>
 <li><a href="https://docs.docker.com/compose/cli-command/">docker compose</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="patrones-creacionales"><a class="header" href="#patrones-creacionales">Patrones Creacionales</a></h1>
+<p>Los patrones de diseño creacional proporcionan varios mecanismos de creación de objetos, 
+que aumentan la flexibilidad y la reutilización del código existente.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="factory-method"><a class="header" href="#factory-method">Factory Method</a></h1>
 <p>Crea objetos de una misma familia usando polimorfismo.
 Permite abstraernos de como fue creado el objeto, generalmente
@@ -194,28 +196,511 @@ panel.paint(); // Salida: Linux Panel
 <p>Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="singleton"><a class="header" href="#singleton">Singleton</a></h1>
+<p>Singleton es un patrón creacional que hace que exista solo una instancia para un tipo de dato.
+Permite el acceso global a la instancia. Es usado cuando se necesita que compartir un recurso en todo la aplicación,
+como por ejemplo la conexión a la base de datos. </p>
+<p>En el ejemplo se presenta un uso común, el acceso a configuraciones en la aplicación.
+Generalmente las configuraciones son compartidas, y se necesita acceder a ellas desde cualquier
+punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton">Singleton</a>.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/singleton.png" alt="singleton" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Settings settings = Settings.getInstance();
+
+settings.set(&quot;db.name&quot;, &quot;test&quot;);
+
+System.out.println(Settings.getInstance().get(&quot;db.name&quot;)); // Se llama al método getInstance de nuevo. Salida: test
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="builder"><a class="header" href="#builder">Builder</a></h1>
+<p>Permite producir diferentes tipos y representaciones de un objeto utilizando el mismo proceso de construcción. 
+El builder permite construir objetos complejos paso a paso.
+Ayuda a que el código sea más legible. Y evita usar constructores, los 
+cuales afectan a muchas clases cuando se cambia su firma.
+También encapsula lógica especifica de construcción del objeto,
+abstrayendo al usuario de este conocimiento. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/builder">Builder</a>.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/builder.png" alt="builder" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Person person = Person.builder()
+                .firstName(&quot;Nikola&quot;)
+                .lastName(&quot;Tesla&quot;)
+                .build();
+
+System.out.println(person);
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prototype"><a class="header" href="#prototype">Prototype</a></h1>
+<p>El prototipo es un patrón de diseño creacional 
+que permite la clonación de objetos, incluso los más 
+complejos, sin acoplarse a sus clases específicas.
+Además, existen muchos objetos con atributos privados,
+este patrón permite que se copien sin necesidad de acceder ellos.
+El patrón Prototype está disponible en Java con una <code>Cloneable</code> interfaz.
+Al clonar un objeto se debe tener cuidado de clonar sus atributos
+que sean por referencia, ya que sino ambos clones apuntaran al mismo atributo. </p>
+<p>En el ejemplo asumimos que existen formas (shapes) que se dibujan en un canvas, y se quiere
+dar la funcionalidad de copiar y pegar. Se utiliza este patrón
+para poder clonar un shape y que su clon tenga todos sus atributos. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype">Prototype</a>.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/prototype.png" alt="prototype" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Square square = new Square();
+square.setWidth(100);
+square.setHeight(100);
+square.setX(20);
+square.setY(20);
+square.setColor(Color.BLACK);
+
+System.out.printf(&quot;Original object: %s, new object: %s\n&quot;, square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="patrones-de-comportamiento"><a class="header" href="#patrones-de-comportamiento">Patrones de Comportamiento</a></h1>
+<p>Los patrones de diseño de comportamiento se ocupan de los algoritmos y la asignación de responsabilidades entre objetos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h1>
+<p>Consiste en un procesamiento en cadena de un elemento, donde cada paso de la cadena
+genera una salida que será la entrada del paso consecutivo. </p>
+<p>En el ejemplo se necesita ejecutar varios procesos sobre un objeto String,
+cada proceso tiene una única responsabilidad, como por ejemplo: remover caracteres
+especiales o colocar en mayúsculas las letras. Se crea una clase principal (handler)
+con la responsabilidad de ejecutar cada etapa en el orden asignado.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/pipeline.png" alt="pipeline" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">StringProcessorHandler stringProcessorHandler = new StringProcessorHandler();
+
+String processedString = stringProcessorHandler
+                .add(new RemoveSpecialCharProcessor())
+                .add(new ToUpperProcessor())
+                .execute(&quot;This$ is an uncl@ean+ed phr#aSe&quot;);
+
+System.out.println(processedString); // Salida: THIS IS AN UNCLEANED PHRASE
+</code></pre>
+<p>Este patrón es muy útil cuando se tiene la necesidad de procesar un objeto (o dato)
+en un orden con una serie de etapas bien definidas. Además, se puede usar
+cuando la salida de una etapa es necesaria como entrada para otra.
+Un paso puede ser o no un requisito previo para otro paso.</p>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/pipeline">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chain-of-responsibility"><a class="header" href="#chain-of-responsibility">Chain Of Responsibility</a></h1>
+<p>Consiste en un procesamiento en cadena de un elemento, cada eslabón de la cadena se denomina controlador (handler).
+Al recibir una solicitud, cada controlador decide procesar la solicitud o pasarla al siguiente controlador de la cadena.</p>
+<p>En el ejemplo refleja de manera muy básica el funcionamiento de los interceptores en
+un servidor web. Cada interceptor recibe la petición hecha, y la procesa según se responsabilidad.
+Se incluyeron dos interceptores, para autorización y autenticación respectivamente. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/chainofresponsibility.png" alt="chainofresponsibility" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">AuthorizationInterceptor authorizationInterceptor = new AuthorizationInterceptor();
+
+AuthenticationInterceptor authenticationInterceptor = new AuthenticationInterceptor();
+authenticationInterceptor.setNext(authorizationInterceptor);
+
+Request request = new Request();
+request.setHeaders(Map.of(&quot;Access-Token&quot;, &quot;123&quot;));
+request.setUrl(&quot;http://myweb.com/forbidden&quot;);
+
+authenticationInterceptor.intercept(request); // SALIDA: EXCEPTION
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/chainofresponsibility">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="strategy"><a class="header" href="#strategy">Strategy</a></h1>
+<p>Permite definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables. El patrón permite que el algoritmo varíe independientemente de los clientes que lo utilizan.</p>
+<p>Es útil cuando se tienes un objeto que debería poder hacer la misma tarea de muchas maneras diferentes. 
+Esas tareas se pueden descomponer en clases de una misma familia. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/strategy.png" alt="strategy" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Compressor compressor = new Compressor();
+compressor.setCompressionFormat(new ZipCompression());
+	
+compressor.compress(asList(new File(&quot;README.md&quot;))); // Salida: Compressing [README.md] with zip format
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/strategy">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="memento"><a class="header" href="#memento">Memento</a></h1>
+<p>Patrón de diseño de comportamiento que permite capturar el estado interno de un objeto sin exponer su estructura interna, para que el objeto pueda regresar a este estado más adelante.</p>
+<p>Es útil cuando necesitas hacer instantáneas de algunos objetos para restaurar su estado más tarde.
+Permite producir copias completas del estado de un objeto y almacenarlas por separado del objeto. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/memento.png" alt="memento" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">History history = new History();
+	
+Console console = new Console();
+	
+console.setCommand(&quot;ls -la&quot;);
+history.addSnapshot(console.generateSnapshot());
+	
+console.setCommand(&quot;cd ..&quot;);
+history.addSnapshot(console.generateSnapshot());
+	
+console.restoreFromSnapshot(history.getSnapshot(0));
+	
+console.exec(); // Salida: Exec command: ls -la
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/memento">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="observer"><a class="header" href="#observer">Observer</a></h1>
+<p>Observer es un patrón de diseño de comportamiento que permite definir
+un mecanismo de suscripción para notificar a varios objetos
+sobre cualquier evento que ocurra al objeto que están observando.</p>
+<p>Es un patrón muy utilizado en las interfaces gráficas.</p>
+<p>En el ejemplo cuando se hace clic en un botón se notifica a los observadores
+'guardar archivo' y 'mostrar mensaje'. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/observer.png" alt="observer" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Button button = new Button();
+button.addListener(new SaveFileListener());
+button.addListener(new ShowMessageListener());
+button.click(); // Se notificará a los observers
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/observer">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="visitor"><a class="header" href="#visitor">Visitor</a></h1>
+<p>Este patrón permite separar nuevos algoritmos o capacidades de los objetos en los que operan.</p>
+<p>Es utilizado cuando es necesario agregar nuevas capacidades a objetos ya existentes,
+sin agregar más complejidad a estos (o más líneas de código), sino moviendo dicha complejidad a otras clases.
+También es utilizado cuando las nuevas operaciones a agregar no corresponden al dominio
+a la clase original, ya que agregaría responsabilidades que no debería tener (principio de responsabilidad única).</p>
+<p>Puede existir diferentes visitantes, uno para cada nueva capacidad que se desee agregar.</p>
+<p>En el ejemplo es necesario agregar más lógica para exportar cada elemento,
+su utiliza visitadores con la capacidad de exportar en diferentes formatos. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/visitor.png" alt="visitor" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Document document = new Document();
+document.addElement(new Header());
+document.addElement(new Body());
+
+JsonExporter jsonExporter = new JsonExporter();
+System.out.println(jsonExporter.export(document));
+
+XmlExporter xmlExporter = new XmlExporter();
+System.out.println(xmlExporter.export(document));
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/visitor">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="template-method"><a class="header" href="#template-method">Template Method</a></h1>
+<p>El Método de plantilla es un patrón de diseño de 
+comportamiento que define el esqueleto de un algoritmo en la superclase, 
+pero permite que las subclases sobrescriban los pasos específicos 
+del algoritmo sin cambiar su estructura.</p>
+<p>En el ejemplo un objeto animatable sobrescribe solamente 'animate' y 'paint'.
+El objeto cliente (Game) no llama directamente los métodos plantillas (pasos específicos),
+sino que invoca 'updateFrame' (el Template Method). </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/templatemethod.png" alt="templatemethod" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">/**
+ * Un objeto 2D.
+ */
+public abstract class Animatable {
+    private int x;
+    private int y;
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    /**
+     * Este es el &quot;Template Method&quot;.
+     * Puede ser final para que no se herede.
+     */
+    public void updateFrame() {
+        animate();
+        paint();
+    }
+
+    public abstract void animate();
+
+    public abstract void paint();
+}
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/templatemethod">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="state"><a class="header" href="#state">State</a></h1>
+<p>Este patrón permite separar es útil cuando se tiene un problema de máquina de estado finito,
+y queremos separar la lógica de control de los estados (flujos de acciones) de 
+las responsabilidades inherentes a la clase.
+Permite que un objeto altere su comportamiento cuando cambia su estado interno. </p>
+<p>Este patrón evita el código espagueti, separando la lógica de los estados a clases externas,
+además de evitar el uso de if anidados o switch.</p>
+<p>En el ejemplo una clase servidor cambia a diferentes estados según acciones (o eventos),
+estas invocan al estado actual para que dirija el flujo hacia otras acciones y estados.
+Por ejemplo: el servidor inicia con estado 'cerrado', al invocar la acción iniciar cambia al estado 'escuchando'.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/state.png" alt="state" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Server server = new Server();
+server.start();
+server.connect();
+server.disconnect();
+server.stop();
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/state">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mediator"><a class="header" href="#mediator">Mediator</a></h1>
+<p>El patrón mediador permite reducir las dependencias caóticas entre los objetos.
+El patrón restringe las comunicaciones directas entre los objetos 
+y los obliga a colaborar sólo a través de un objeto mediador.</p>
+<p>El mediador concentra el flujo de invocaciones de acciones y eventos.
+Evita altas dependencias entre clases y código repetido.
+El mediador conoce todos los objetos que desean comunicarse entre si.
+Es especialmente utilizado para objetos heterogéneos (no es necesario que los colegas/colaboradores sean de la misma familia).
+La responsabilidad del mediador tiene como alcance solamente dirigir el flujo de acciones entre objetos
+más no directamente realizar las acciones por el mismo.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/mediator.png" alt="mediator" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">public class GuiController implements Mediator {
+    private FileTree fileTree;
+    private TextEditor textEditor;
+    private SpellChecker spellChecker;
+
+    @Override
+    public void register(FileTree fileTree) {
+        this.fileTree = fileTree;
+    }
+
+    @Override
+    public void register(SpellChecker spellChecker) {
+        this.spellChecker = spellChecker;
+    }
+
+    @Override
+    public void register(TextEditor textEditor) {
+        this.textEditor = textEditor;
+    }
+
+    @Override
+    public void notifyFileSelected(File file) {
+        textEditor.loadFile(file);
+    }
+
+    @Override
+    public void notifyTextChange(String newText) {
+        spellChecker.check(newText);
+    }
+
+    @Override
+    public void notifySpellingSuccess() {
+        fileTree.highlightSuccess();
+    }
+
+    @Override
+    public void notifySpellingError() {
+        fileTree.highlightError();
+    }
+}
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/mediator">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="iterator"><a class="header" href="#iterator">Iterator</a></h1>
+<p>Iterator es un patrón de diseño de comportamiento que 
+permite acceder a los elementos de una colección sin 
+exponer su representación subyacente (lista, pila, árbol, etc.),
+o la lógica de búsqueda.</p>
+<p>Es extensamente usado en java y en bibliotecas como JDBC. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/iterator.png" alt="iterator" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Twitter twitter = new Twitter();
+PostsIterator postsIterator = twitter.findPostsByHashtag(&quot;#java&quot;);
+
+while (postsIterator.hasNext()){
+    Post post = postsIterator.getNext();
+    System.out.println(post.getContent());
+}
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/iterator">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command"><a class="header" href="#command">Command</a></h1>
+<p>Este patrón convierte una solicitud/acción en un objeto independiente 
+que contiene toda la información sobre esta. 
+Esta transformación le permite parametrizar métodos con diferentes solicitudes, 
+poner en cola la ejecución de una solicitud 
+y respaldar operaciones que no se pueden deshacer.
+Este patrón se puede completar con el patrón memento para almacenar el histórico de 
+estados.</p>
+<p>También es muy útil para encapsular la lógica de una operación y reducir 
+la dependencia con los objetos que las ejecutan (receptores).</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/behavioral/command.png" alt="command" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">IDE ide= new IDE();
+
+ide.getEditor().setText(&quot;Hola mundo!&quot;);
+ide.getEditor().setSelectedText(&quot;mundo&quot;);
+
+ide.clickOnCopyButton(); // Invoca el comando desde un evento de ratón
+ide.shortcutPasteButton(); // Invoca el comando desde un evento de teclado
+System.out.println(ide.getEditor().getText());
+
+ide.clickOnUndo();
+System.out.println(ide.getEditor().getText()); // Muestra el texto original
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/command">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="patrones-estructurales"><a class="header" href="#patrones-estructurales">Patrones Estructurales</a></h1>
+<p>Los patrones de diseño estructural explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo estas estructuras flexibles y eficientes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="adapter"><a class="header" href="#adapter">Adapter</a></h1>
+<p>Un adaptador envuelve (wraps) la lógica de un objeto, la cual no puede ser
+alcanzada debido a interfaces incompatibles.</p>
+<p>Es muy util cuando se quiere incluir una clase de terceros
+a nuestra base de código pero, esta usa o retorna tipos de objetos no
+compatibles con nuestra aplicación. Es necesario que el adaptador pertenezca (herede)
+de una familia de clases.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/adapter.png" alt="adapter" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Fahrenheit fahrenheit = new Fahrenheit(98.6);
+
+List&lt;MetricTemperatureSystem&gt; temperatureList = Arrays.asList(
+    new Celsius(37),
+    new CelsiusAdapter(fahrenheit)
+);
+
+System.out.println(fahrenheit); // Salida: 98.6° F
+System.out.println(temperatureList); // Salida: [37.0° C, 37.0° C]
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/adapter">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bridge"><a class="header" href="#bridge">Bridge</a></h1>
+<p>Bridge es un patrón de diseño estructural que permite dividir una clase grande (o conjunto de clases) en dos jerarquías separadas 
+(abstracción e implementación) que pueden desarrollarse independientemente una de la otra.</p>
+<p>Se usa cuando un conjunto de clases que heredan del mismo padre crece en gran número
+debido a que cada nuevo hijo debe combinar diferentes comportamientos (varias versiones del mismo).
+Un ejemplo común son las formas y colores, si tenemos dos formas (cuadrado y circulo) y dos colores
+(azul y rojo) entonces las combinaciones posibles son 4, a medida que vamos introduciendo formas o colores
+las combinaciones crecerán mucho más. Por tanto, se separa parte de la lógica en otro conjunto de clases.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/bridge.png" alt="bridge" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">InfoLogger infoLogger = new InfoLogger(new TerminalLoggerOutput());
+infoLogger.log(&quot;message&quot;); // Salida: INFO: message
+
+ErrorLogger errorLogger = new ErrorLogger(new FileLoggerOutput(&quot;error.log&quot;));
+errorLogger.log(&quot;message&quot;); // Salida: File: error.log ERROR: message
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/bridge">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="composite"><a class="header" href="#composite">Composite</a></h1>
+<p>Es un patrón de diseño estructural que le permite componer objetos en estructuras de árbol. 
+Se usa en estructuras que necesitan composición anidada o recursiva. Un ejemplo puede ser la creación de interfaces
+gráficas. </p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/composite.png" alt="composite" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Window window = new Window(&quot;Main Window&quot;);
+
+Panel firstPanel = new Panel(&quot;First Panel&quot;);
+firstPanel.add(new Label(&quot;Label in First Panel&quot;));
+window.add(firstPanel);
+
+Panel secondPanel = new Panel(&quot;Second Panel&quot;);
+secondPanel.add(new Label(&quot;Label in Second Panel&quot;));
+window.add(secondPanel);
+
+window.draw();
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/composite">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="decorator"><a class="header" href="#decorator">Decorator</a></h1>
+<p>Decorator es un patrón que permite agregar nuevos comportamientos 
+a los objetos al colocarlos dentro de otros objetos envoltorios (wrappers) especiales.</p>
+<p>El patrón <a href="structural/decorator.html#adapter">adapter</a> cambia la interfaz de un objeto existente, 
+mientras que el decorator mejora un objeto sin cambiar su interfaz. 
+Además, admite la composición recursiva, 
+que no es posible cuando se usa el adapter.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/decorator.png" alt="decorator" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">ConsoleDataSource consoleDataSource = new ConsoleDataSource();
+String data = consoleDataSource.readData();
+consoleDataSource.writeData(data);
+
+EncryptionDecorator encryptionDecorator = new EncryptionDecorator(consoleDataSource);
+encryptionDecorator.writeData(data);
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/decorator">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="facade"><a class="header" href="#facade">Facade</a></h1>
+<p>Facade es un patrón de diseño estructural que proporciona una interfaz 
+simplificada para una biblioteca, un framework o cualquier otro 
+conjunto complejo de clases (subsistema). </p>
+<p>Permite separar y reemplazar de manera sencilla diferentes subsistemas. 
+Disminuye el acoplamiento y dependencia de un conjunto de clases hacia otro.</p>
+<p>En el ejemplo el cliente no necesita saber nada sobre la implementación del subsistema,
+excepto la inicialización de la clase controladora para la base de datos requerida.
+El cliente simplemente interactúa con las interfaces de la fachada en lugar de clases
+específicas de la base de datos.
+DriverManager actúa como una fachada para el subsistema subyacente.</p>
+<p>Entre los ejemplos más conocidos tenemos JDBC y SLF4J.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/facade.png" alt="facade" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Class.forName(&quot;pattern.structural.facade.oracle.OracleJDBCDriver&quot;);
+Connection connection = DriverManager.getConnection(&quot;oracle&quot;);
+Statement statement = connection.createStatement();
+statement.executeQuery(&quot;select * from employee&quot;);
+
+Class.forName(&quot;pattern.structural.facade.mysql.MySQLJDBCDriver&quot;);
+connection = DriverManager.getConnection(&quot;mysql&quot;);
+statement = connection.createStatement();
+statement.executeQuery(&quot;select * from employee&quot;);
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/facade">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="proxy"><a class="header" href="#proxy">Proxy</a></h1>
+<p>El proxy es un patrón de diseño estructural que permite 
+proporcionar un sustituto para otro objeto. 
+Un proxy controla el acceso al objeto original, 
+lo que le permite realizar algo antes o después de que 
+la solicitud llegue al objeto original.</p>
+<p>Algunas diferencias con el patrón <a href="structural/proxy.html#decorator">decorator</a> son:</p>
+<ul>
+<li>El decorator obtiene la referencia del objeto decorado (generalmente a través del constructor), mientras que proxy es responsable de hacerlo solo.</li>
+<li>Los proxy generalmente son utilizados por los frameworks para agregar seguridad o almacenamiento en caché.</li>
+<li>El decorator usualmente se usa para agregar un nuevo comportamiento a las clases antiguas o heredadas.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/proxy.png" alt="proxy" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">Internet internet = new ProxyInternet();
+try {
+    internet.connectTo(&quot;google.com&quot;);
+    internet.connectTo(&quot;forbidden.com&quot;);
+} catch (Exception e) {
+    System.out.println(e.getMessage());
+}
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/proxy">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="flyweight"><a class="header" href="#flyweight">Flyweight</a></h1>
+<p>Flyweight es un patrón que permite optimizar el uso
+de la RAM al compartir partes comunes de estado entre 
+múltiples objetos en lugar de mantener todos los datos en cada objeto.</p>
+<p>Sólo se separa la parte del objeto que pueden ser compartida entre otros objetos.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/flyweight.png" alt="flyweight" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">TreeType type = TreeTypeFactory.getTreeType(&quot;Autumn Oak&quot;, Color.YELLOW);
+Tree tree1 = new Tree(10, 10, type);
+Tree tree2 = new Tree(20, 20, type);
+
+tree1.draw();
+tree2.draw();
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/flyweight">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="acerca-de-este-libro"><a class="header" href="#acerca-de-este-libro">Acerca de este Libro</a></h1>
 <p>Este libro utiliza <a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a> y <a href="https://plantuml.com/">PlantUML</a>.</p>
 <h2 id="comandos-de-desarrollo"><a class="header" href="#comandos-de-desarrollo">Comandos de Desarrollo</a></h2>

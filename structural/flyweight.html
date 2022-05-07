@@ -138,6 +138,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="flyweight"><a class="header" href="#flyweight">Flyweight</a></h1>
+<p>Flyweight es un patrón que permite optimizar el uso
+de la RAM al compartir partes comunes de estado entre 
+múltiples objetos en lugar de mantener todos los datos en cada objeto.</p>
+<p>Sólo se separa la parte del objeto que pueden ser compartida entre otros objetos.</p>
+<p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/structural/flyweight.png" alt="flyweight" /></p>
+<p>Ejemplo de uso:</p>
+<pre><code class="language-java">TreeType type = TreeTypeFactory.getTreeType(&quot;Autumn Oak&quot;, Color.YELLOW);
+Tree tree1 = new Tree(10, 10, type);
+Tree tree2 = new Tree(20, 20, type);
+
+tree1.draw();
+tree2.draw();
+</code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/flyweight">Código</a></p>
+</blockquote>
 
                     </main>
 
