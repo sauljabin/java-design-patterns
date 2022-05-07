@@ -6,7 +6,7 @@ como por ejemplo la conexión a la base de datos.
 
 En el ejemplo se presenta un uso común, el acceso a configuraciones en la aplicación.
 Generalmente las configuraciones son compartidas, y se necesita acceder a ellas desde cualquier
-punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual. Código [Singleton](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton).
+punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual. 
 
 ![singleton](https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/singleton.png)
 
@@ -19,3 +19,4 @@ settings.set("db.name", "test");
 
 System.out.println(Settings.getInstance().get("db.name")); // Se llama al método getInstance de nuevo. Salida: test
 ```
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton)

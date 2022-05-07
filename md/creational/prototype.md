@@ -1,6 +1,5 @@
 # Prototype
 
-
 El prototipo es un patrón de diseño creacional 
 que permite la clonación de objetos, incluso los más 
 complejos, sin acoplarse a sus clases específicas.
@@ -12,7 +11,7 @@ que sean por referencia, ya que sino ambos clones apuntaran al mismo atributo.
 
 En el ejemplo asumimos que existen formas (shapes) que se dibujan en un canvas, y se quiere
 dar la funcionalidad de copiar y pegar. Se utiliza este patrón
-para poder clonar un shape y que su clon tenga todos sus atributos. Código [Prototype](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype).
+para poder clonar un shape y que su clon tenga todos sus atributos.
 
 ![prototype](https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/prototype.png)
 
@@ -28,3 +27,5 @@ square.setColor(Color.BLACK);
 
 System.out.printf("Original object: %s, new object: %s\n", square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 ```
+
+ > [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype)

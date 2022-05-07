@@ -4,7 +4,7 @@ Crea objetos de diferentes familias de clases. Es un Factory para crear Factorie
 
 En el ejemplo se necesita crear objetos gráficos como: Button, Panel, Windows, TextField, entre otros.
 Debido a que se desea que la aplicación sea multiplataforma, se crean Factories para crear los objetos
-gráficos dependiendo de la plataforma (Windows, Linux). Código [Abstract Factory](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/abstractfactory).
+gráficos dependiendo de la plataforma (Windows, Linux). 
 
 ![abstractfactory](https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/abstractfactory.png)
 
@@ -22,3 +22,5 @@ panel.paint(); // Salida: Linux Panel
 
 Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.
+
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/abstractfactory)
