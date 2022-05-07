@@ -7,7 +7,7 @@ descubrir estos mismos.
 
 ## Enlaces
 
-A contimuación se listan algunos enlaces que te ayudaran a ahondar en este tema:
+A continuación se listan algunos enlaces que te ayudaran a ahondar en este tema:
 
 - [refactoring.guru](https://refactoring.guru)
 - [mcdonaldland.info](http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf)
