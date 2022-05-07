@@ -1,10 +1,11 @@
-.idea
-.gradle
-build
+.idea/
+.gradle/
+build/
 .directory
-out
-bin
+out/
+bin/
 .settings
 .classpath
 .project
 *.iml
+book/

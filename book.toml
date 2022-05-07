@@ -1,0 +1,9 @@
+[book]
+authors = ["Saúl Piña"]
+language = "es"
+multilingual = false
+src = "md"
+title = "Patrones de Diseños en Java"
+
+[output.html]
+git-repository-url = "https://github.com/sauljabin/java-design-patterns"
