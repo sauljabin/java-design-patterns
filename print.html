@@ -168,7 +168,7 @@ a instanciar, o por último no es necesario saber cuál es la clase a instanciar
 <p>En el ejemplo se asume que la aplicación le permite al usuario pagar
 con efectivo o con tarjeta de crédito. Se crean dos clases de tipo pago,
 cada una con un comportamiento diferente, se utiliza un factory para 
-obtener la clase correcta según sea el caso. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/factorymethod">Factory Method</a>.</p>
+obtener la clase correcta según sea el caso. </p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/factorymethod.png" alt="factorymethod" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">Payment payment = PaymentFactory.createPayment(PaymentType.CASH);
@@ -178,11 +178,14 @@ payment.doPayment(1000.50); // Salida: Paid with cash: 1000.50
 <p>El patrón generalmente es usado como un método estático.
 Es muy útil para crear objetos rápidamente, o para crear objetos con distintos 
 comportamientos pero en la misma familia.</p>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/factorymethod">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="abstract-factory"><a class="header" href="#abstract-factory">Abstract Factory</a></h1>
 <p>Crea objetos de diferentes familias de clases. Es un Factory para crear Factories.</p>
 <p>En el ejemplo se necesita crear objetos gráficos como: Button, Panel, Windows, TextField, entre otros.
 Debido a que se desea que la aplicación sea multiplataforma, se crean Factories para crear los objetos
-gráficos dependiendo de la plataforma (Windows, Linux). Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/abstractfactory">Abstract Factory</a>.</p>
+gráficos dependiendo de la plataforma (Windows, Linux). </p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/abstractfactory.png" alt="abstractfactory" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">GuiFactory guiFactory = GuiFactorySelector.getFactory(OS.LINUX);
@@ -195,13 +198,16 @@ panel.paint(); // Salida: Linux Panel
 </code></pre>
 <p>Este patrón puede ser usado cuando una solución debe funcionar con diferentes variantes de una familia de objetos.
 Abstrae al desarrollador de la creación de los objetos, y solo tiene la responsabilidad de crear objetos asociados entre sí.</p>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/abstractfactory">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="singleton"><a class="header" href="#singleton">Singleton</a></h1>
 <p>Singleton es un patrón creacional que hace que exista solo una instancia para un tipo de dato.
 Permite el acceso global a la instancia. Es usado cuando se necesita que compartir un recurso en todo la aplicación,
 como por ejemplo la conexión a la base de datos. </p>
 <p>En el ejemplo se presenta un uso común, el acceso a configuraciones en la aplicación.
 Generalmente las configuraciones son compartidas, y se necesita acceder a ellas desde cualquier
-punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton">Singleton</a>.</p>
+punto de la aplicación, además es necesario que estas se actualizen para toda la aplicación por igual. </p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/singleton.png" alt="singleton" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">Settings settings = Settings.getInstance();
@@ -210,13 +216,16 @@ settings.set(&quot;db.name&quot;, &quot;test&quot;);
 
 System.out.println(Settings.getInstance().get(&quot;db.name&quot;)); // Se llama al método getInstance de nuevo. Salida: test
 </code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="builder"><a class="header" href="#builder">Builder</a></h1>
 <p>Permite producir diferentes tipos y representaciones de un objeto utilizando el mismo proceso de construcción. 
 El builder permite construir objetos complejos paso a paso.
 Ayuda a que el código sea más legible. Y evita usar constructores, los 
 cuales afectan a muchas clases cuando se cambia su firma.
 También encapsula lógica especifica de construcción del objeto,
-abstrayendo al usuario de este conocimiento. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/builder">Builder</a>.</p>
+abstrayendo al usuario de este conocimiento.</p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/builder.png" alt="builder" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">Person person = Person.builder()
@@ -226,6 +235,9 @@ abstrayendo al usuario de este conocimiento. Código <a href="https://github.com
 
 System.out.println(person);
 </code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/builder">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prototype"><a class="header" href="#prototype">Prototype</a></h1>
 <p>El prototipo es un patrón de diseño creacional 
 que permite la clonación de objetos, incluso los más 
@@ -237,7 +249,7 @@ Al clonar un objeto se debe tener cuidado de clonar sus atributos
 que sean por referencia, ya que sino ambos clones apuntaran al mismo atributo. </p>
 <p>En el ejemplo asumimos que existen formas (shapes) que se dibujan en un canvas, y se quiere
 dar la funcionalidad de copiar y pegar. Se utiliza este patrón
-para poder clonar un shape y que su clon tenga todos sus atributos. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype">Prototype</a>.</p>
+para poder clonar un shape y que su clon tenga todos sus atributos.</p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/prototype.png" alt="prototype" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">Square square = new Square();
@@ -249,6 +261,9 @@ square.setColor(Color.BLACK);
 
 System.out.printf(&quot;Original object: %s, new object: %s\n&quot;, square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 </code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype">Código</a></p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="patrones-de-comportamiento"><a class="header" href="#patrones-de-comportamiento">Patrones de Comportamiento</a></h1>
 <p>Los patrones de diseño de comportamiento se ocupan de los algoritmos y la asignación de responsabilidades entre objetos.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h1>

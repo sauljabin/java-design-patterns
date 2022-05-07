@@ -148,7 +148,7 @@ Al clonar un objeto se debe tener cuidado de clonar sus atributos
 que sean por referencia, ya que sino ambos clones apuntaran al mismo atributo. </p>
 <p>En el ejemplo asumimos que existen formas (shapes) que se dibujan en un canvas, y se quiere
 dar la funcionalidad de copiar y pegar. Se utiliza este patrón
-para poder clonar un shape y que su clon tenga todos sus atributos. Código <a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype">Prototype</a>.</p>
+para poder clonar un shape y que su clon tenga todos sus atributos.</p>
 <p><img src="https://raw.githubusercontent.com/sauljabin/java-design-patterns/main/plantuml/creational/prototype.png" alt="prototype" /></p>
 <p>Ejemplo de uso:</p>
 <pre><code class="language-java">Square square = new Square();
@@ -160,6 +160,9 @@ square.setColor(Color.BLACK);
 
 System.out.printf(&quot;Original object: %s, new object: %s\n&quot;, square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 </code></pre>
+<blockquote>
+<p><a href="https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype">Código</a></p>
+</blockquote>
 
                     </main>
 
