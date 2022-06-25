@@ -5,7 +5,9 @@ para explicarlos en español con ejemplos. Intenta explorar los patrones princip
 e intenta ser un recurso que puede ayudar a esos desarrolladores y desarrolladoras que estan empezando a
 descubrir estos mismos.
 
-Este libro utiliza [mdBook](https://rust-lang.github.io/mdBook/index.html) y [PlantUML](https://plantuml.com/).
+Encontrarás el libro aquí https://sauljabin.github.io/java-design-patterns/. 
+
+> Este libro utiliza [mdBook](https://rust-lang.github.io/mdBook/index.html) y [PlantUML](https://plantuml.com/).
 
 ## Enlaces
 
