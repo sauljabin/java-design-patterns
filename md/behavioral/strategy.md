@@ -16,4 +16,4 @@ compressor.setCompressionFormat(new ZipCompression());
 compressor.compress(asList(new File("README.md"))); // Salida: Compressing [README.md] with zip format
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/strategy)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/strategy)

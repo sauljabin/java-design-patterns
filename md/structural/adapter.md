@@ -24,4 +24,4 @@ System.out.println(fahrenheit); // Salida: 98.6° F
 System.out.println(temperatureList); // Salida: [37.0° C, 37.0° C]
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/adapter)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/structural/adapter)

@@ -28,4 +28,4 @@ square.setColor(Color.BLACK);
 System.out.printf("Original object: %s, new object: %s\n", square, square.clone()); // Salida ejemplo: Original object: pattern.creational.prototype.Square@39a054a5, new object: pattern.creational.prototype.Square@71bc1ae4
 ```
 
- > [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/prototype)
+ > [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/creational/prototype)

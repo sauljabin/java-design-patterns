@@ -21,4 +21,4 @@ ErrorLogger errorLogger = new ErrorLogger(new FileLoggerOutput("error.log"));
 errorLogger.log("message"); // Salida: File: error.log ERROR: message
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/bridge)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/structural/bridge)

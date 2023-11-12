@@ -19,4 +19,4 @@ tree1.draw();
 tree2.draw();
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/flyweight)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/structural/flyweight)

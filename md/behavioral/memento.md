@@ -25,4 +25,4 @@ console.restoreFromSnapshot(history.getSnapshot(0));
 console.exec(); // Salida: Exec command: ls -la
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/memento)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/memento)

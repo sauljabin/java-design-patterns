@@ -28,4 +28,4 @@ en un orden con una serie de etapas bien definidas. Además, se puede usar
 cuando la salida de una etapa es necesaria como entrada para otra.
 Un paso puede ser o no un requisito previo para otro paso.
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/pipeline)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/pipeline)

@@ -24,4 +24,4 @@ El patrón generalmente es usado como un método estático.
 Es muy útil para crear objetos rápidamente, o para crear objetos con distintos 
 comportamientos pero en la misma familia.
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/factorymethod)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/creational/factorymethod)

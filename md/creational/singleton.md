@@ -19,4 +19,4 @@ settings.set("db.name", "test");
 
 System.out.println(Settings.getInstance().get("db.name")); // Se llama al método getInstance de nuevo. Salida: test
 ```
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/singleton)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/creational/singleton)

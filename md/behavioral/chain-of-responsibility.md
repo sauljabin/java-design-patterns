@@ -24,4 +24,4 @@ request.setUrl("http://myweb.com/forbidden");
 authenticationInterceptor.intercept(request); // SALIDA: EXCEPTION
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/chainofresponsibility)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/chainofresponsibility)

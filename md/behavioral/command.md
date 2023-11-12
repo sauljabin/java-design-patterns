@@ -29,4 +29,4 @@ ide.clickOnUndo();
 System.out.println(ide.getEditor().getText()); // Muestra el texto original
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/command)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/command)

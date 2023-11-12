@@ -22,4 +22,4 @@ window.add(secondPanel);
 window.draw();
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/structural/composite)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/structural/composite)

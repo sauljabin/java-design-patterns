@@ -20,4 +20,4 @@ Person person = Person.builder()
 System.out.println(person);
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/creational/builder)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/creational/builder)

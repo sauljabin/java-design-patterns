@@ -20,4 +20,4 @@ button.addListener(new ShowMessageListener());
 button.click(); // Se notificará a los observers
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/observer)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/observer)

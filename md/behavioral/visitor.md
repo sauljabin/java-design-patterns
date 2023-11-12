@@ -28,4 +28,4 @@ XmlExporter xmlExporter = new XmlExporter();
 System.out.println(xmlExporter.export(document));
 ```
 
-> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/src/main/java/pattern/behavioral/visitor)
+> [Código](https://github.com/sauljabin/java-design-patterns/tree/main/patterns/src/main/java/pattern/behavioral/visitor)

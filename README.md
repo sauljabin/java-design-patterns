@@ -20,7 +20,7 @@ A continuación se listan algunos enlaces que te ayudaran a ahondar en este tema
 
 ## Dependencias
 
-- [java 11](https://www.java.com/en/download/)
+- [java 17](https://www.java.com/en/download/)
 - [docker](https://www.docker.com/)
 - [docker compose](https://docs.docker.com/compose/cli-command/)
 
